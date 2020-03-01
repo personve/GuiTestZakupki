@@ -29,22 +29,36 @@ function fio_tab() {
 function progress() {
   var width = 100;
   var elem = document.getElementById("progress_line");
-  var time1 = Math.round((60 * 1000) / 100);
+  var time1 = Math.round((300 * 1000) / 100);
   var id = setInterval(progressStatus, time1);
 
   function progressStatus() {
     if (width == 0) {
       clearInterval(id);
       document.getElementById("hideQuestions").style.display = "none";
-    }
-    // else if (нажимаем кнопку с правильным ответом) {
-    //   clearInterval(id);
-    //   добавляем +1 к итоговому результату за тест
-    //   hidden();
-    // }
-    else {
+      document.getElementById("result").style.display = "block";
+    } else {
       width--;
       elem.style.width = width + "%";
+      getMass();
     }
   }
 }
+
+function getMass() {
+  var mass = [null];
+  rightBut1.onclick = function () {
+    mass.push(20);
+    alert(mass);
+  }
+}
+
+function getSumm() {
+  var sumRes = 0;
+  for (var i = 0; i < Array.length; i++) {
+    sumRes += parseInt(mass[i]);
+  }
+  return sumRes;
+}
+
+function res() {}

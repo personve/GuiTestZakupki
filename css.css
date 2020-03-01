@@ -55,19 +55,17 @@
 
 .goToMainMenu:hover,
 .choose:hover,
-.pass input[type="submit"]:hover {
+.pass input[type="submit"]:hover,
+.answer:hover {
   background: #82b4ec;
 } /* при наведении курсора мышки */
 
 .goToMainMenu:active,
 .pass input[type="submit"]:active,
-.choose:active {
+.choose:active,
+.answer:active {
   background: #046feb;
 } /* при нажатии */
-
-.que {
-  display: block;
-}
 
 table {
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -128,36 +126,35 @@ td:first-child {
   width: 100%;
 }
 
-.numQueButton {
-  height: 50px;
-  width: 50px;
-  background-color: blue;
-  margin-left: 10px;
-  border-radius: 50px;
-  font: 35px arial bol;
-  color: white;
+.question {
+  display: block;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 18px;
+  font-family: arial;
+  font-style: italic;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 30px;
   text-align: center;
+  border-style: solid;
+  border-width: 3px;
+  border-color: gray;
+  border-radius: 40px;
 }
 
-.squareButton {
-  height: 70px;
-  width: 70px;
-  background-color: azure;
-}
-
-.resultButton {
-  height: 70px;
-  width: 150px;
-  background-color: blue;
-  margin-left: 20px;
-  border-radius: 50px;
-  font: 20px arial bol;
-  color: white;
-  text-align: center;
-}
-
-.notSquareButton {
-  height: 80px;
-  width: 190px;
-  background-color: azure;
+.answer {
+  display: block;
+  padding: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5px;
+  font-size: 15px;
+  font-family: arial;
+  font-style: italic;
+  text-align: left;
+  border-width: 5px;
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  outline: none; /* убирать контур */
 }

@@ -21,16 +21,16 @@
 
       <form name="form2" class="pass">
         <input
-        id="tab_no"  
-        type="text"
+          id="tab_no"
+          type="text"
           name="tab_no"
           placeholder="Табельный номер"
           value="1567"
           required
         />
         <input
-        id="name"  
-        type="text"
+          id="name"
+          type="text"
           name="name"
           placeholder="Фамилия И.О."
           value="Иванов И.И."
@@ -60,9 +60,9 @@
       </form>
     </div>
 
-
-  <p id="hideHello" class="head" style="display: none;">Тест сдает <b id="fio"></b> (табельный номер <b id="tab"></b>)</p>
-
+    <p id="hideHello" class="head" style="display: none;">
+      Тест сдает <b id="fio"></b> (табельный номер <b id="tab"></b>)
+    </p>
 
     <div id="hideQuestions" style="display: none">
       <div class="wrapper">
@@ -72,41 +72,45 @@
       </div>
 
       <div>
-        <table>
-          <tr>
-            <td><h1>Вопрос L1</h1></td>
-          </tr>
-          <tr>
-            <td>
-              <form name="right">
-                <button>Ответ L1.1</button>
-              </form>
-            </td>
-            <td>
-              <form action="t_10_situations/test_1_s.html">
-                <button>Ответ L1.2</button>
-              </form>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <form action="t_10_situations/test_1_s.html">
-                <button>Ответ L1.3</button>
-              </form>
-            </td>
-            <td>
-              <form action="t_10_situations/test_1_s.html">
-                <button>Ответ L1.4</button>
-              </form>
-            </td>
-          </tr>
-        </table>
+        <div class="question">
+          <p><b>Вопрос 1</b></p>
+          <p>
+            Назовите документ(ы), которым(и) необходимо в первую очередь
+            руководствоваться при проведении процедур закупок на предприятии N:
+          </p>
+        </div>
+
+        <form>
+          <button id="rightBut1" class="answer">
+            <b>1. </b>Локальные документы по специфике закупок
+          </button>
+        </form>
+
+        <form>
+          <button class="answer">
+            <b>2. </b>Постановление Совета Министров Республики Беларусь <br> от 15
+            марта 2012 г. № 229 <br> "О совершенствовании отношений в области закупок
+            товаров (работ, услуг) за счет собственных средств"
+          </button>
+        </form>
+
+        <form>
+          <button class="answer">
+            <b>3. </b>Постановление Совета Министров Республики Беларусь<br> от 3
+            сентября 2008 г. № 1290 <br> "Об утверждении Положения о приемке товара
+            по количеству и качеству"
+          </button>
+        </form>
+
+        <form>
+          <button class="answer"><b>4. </b>Все варианты</button>
+        </form>
       </div>
     </div>
 
-    <p class="head" style="display: none">Результаты теста</p>
-
-    <div id="result"></div>
+    <div id="result" style="display: none">
+      <p class="head">Результаты теста</p>
+    </div>
 
     <script src="../js.js"></script>
   </body>
