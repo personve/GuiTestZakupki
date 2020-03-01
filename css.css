@@ -1,0 +1,44 @@
+.form {
+  width: 80px;
+  color: brown;
+}
+
+.que {
+  display: block;
+}
+
+
+#queButton {
+  background-color: aqua;
+  display: block;
+}
+
+h1 {
+  color: brown;
+}
+
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 80%;
+}
+
+.progress_line {
+  background-color: #2fc54d;
+  bottom: 0;
+  
+  left: 0;
+  top: 0;
+  position: absolute;
+  text-align: center;
+}
+
+.progress_line_bg {
+  background-color: #ccc;
+  border-radius: 20px;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}

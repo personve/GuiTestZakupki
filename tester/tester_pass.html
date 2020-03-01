@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Вакарова А.С." />
+    <meta
+      name="description"
+      content="Веб-приложение для тестирования в сфере закупок"
+    />
+    <link href="../css.css" />
+    <title>Главное меню</title>
+  </head>
+
+  <body>
+    <form action="../main.html">
+      <button>В главное меню</button>
+    </form>
+
+    <h1>Введите табельный номер и свою фамилию</h1>
+
+    <h2>Пароль-подтверждение вводит проверяющий</h2>
+
+    <form name="form2">
+      <input type="text" name="tab_no" placeholder="Табельный номер" required />
+      <input type="text" name="last_name" placeholder="Фамилия" required />
+      <input
+        type="password"
+        name="pass"
+        placeholder="Пароль-подтверждение"
+        required
+      />
+      <input
+        type="submit"
+        name="submit"
+        value="Вход"
+        onclick="checkData(event)"
+      />
+    </form>
+
+    <script>
+      function checkData(event) {
+        event.preventDefault();
+        if (document.forms.form2.tab_no.value === "555") {
+          if (document.forms.form2.last_name.value === "Вакарова") {
+            if (document.forms.form2.pass.value === "123") {
+              location.href = "tests/choose_test.html";
+            } else {
+              alert("Неверный пароль-подтверждение");
+            }
+          } else {
+            alert("Неверная фамилия");
+          }
+        } else {
+          alert("Неверный табельный");
+        }
+      }
+    </script>
+  </body>
+</html>
