@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Вакарова А.С." />
+    <meta
+      name="description"
+      content="Веб-приложение для тестирования в сфере закупок"
+    />
+    <link rel="stylesheet" type="text/css" href="../css.css" />
+    <title>Вход для тестирования</title>
+  </head>
+
+  <body>
+    <form action="../main.html">
+      <button class="goToMainMenu">в главное меню</button>
+    </form>
+
+    <div id="hidePass">
+      <p class="head">Введите табельный номер, фамилию и инициалы</p>
+
+      <form name="form2" class="pass">
+        <input
+        id="tab_no"  
+        type="text"
+          name="tab_no"
+          placeholder="Табельный номер"
+          value="1567"
+          required
+        />
+        <input
+        id="name"  
+        type="text"
+          name="name"
+          placeholder="Фамилия И.О."
+          value="Иванов И.И."
+          required
+        />
+
+        <p style="margin-top: 10px; text-align: center;">
+          Пароль-подтверждение вводит экзаменатор<br />
+          (пароль: 123)
+        </p>
+
+        <input
+          type="password"
+          name="pass"
+          placeholder="Пароль-подтверждение"
+          value="123"
+          required
+        />
+
+        <input
+          style="margin-top: 10px;"
+          type="submit"
+          name="submit"
+          value="Вход"
+          onclick="checkData(event)"
+        />
+      </form>
+    </div>
+
+
+  <p id="hideHello" class="head" style="display: none;">Тест сдает <b id="fio"></b> (табельный номер <b id="tab"></b>)</p>
+
+
+    <div id="hideQuestions" style="display: none">
+      <div class="wrapper">
+        <div class="progress_line_bg">
+          <div class="progress_line" id="progress_line"></div>
+        </div>
+      </div>
+
+      <div>
+        <table>
+          <tr>
+            <td><h1>Вопрос L1</h1></td>
+          </tr>
+          <tr>
+            <td>
+              <form name="right">
+                <button>Ответ L1.1</button>
+              </form>
+            </td>
+            <td>
+              <form action="t_10_situations/test_1_s.html">
+                <button>Ответ L1.2</button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <form action="t_10_situations/test_1_s.html">
+                <button>Ответ L1.3</button>
+              </form>
+            </td>
+            <td>
+              <form action="t_10_situations/test_1_s.html">
+                <button>Ответ L1.4</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <p class="head" style="display: none">Результаты теста</p>
+
+    <div id="result"></div>
+
+    <script src="../js.js"></script>
+  </body>
+</html>
