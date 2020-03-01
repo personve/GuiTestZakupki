@@ -9,7 +9,14 @@ function progress() {
       clearInterval(id);
       hidden();
      
-    } else {
+    }
+    // else if (нажимаем кнопку с правильным ответом) {
+    //   clearInterval(id);
+    //   добавляем +1 к итоговому результату за тест
+    //   hidden();
+    // }
+    
+    else {
       width--;
       elem.style.width = width + '%';
     }

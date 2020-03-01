@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Вакарова А.С." />
+    <meta
+      name="description"
+      content="Веб-приложение для тестирования в сфере закупок"
+    />
+    <link rel="stylesheet" type="text/css" href="../../../css.css" />
+    <title>Тест "Ситуации"</title>
+    <style>
+      body {
+        margin: 0px;
+      }
+      .header,
+      .content {
+        width: 100%;
+      }
+      .header,
+      .content {
+        border: none;
+        display: block;
+      }
+      .header {
+        height: 100px;
+        position: fixed;
+        top: 0px;
+        background-color: blueviolet;
+      }
+      .content {
+        height: 100%;
+        background-color: darkslategray;
+        margin-right: 200px;
+      }
+
+      .dd {
+        position: fixed;
+        top: 100px;
+        bottom: 20px;
+        width: 100%;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <iframe class="header" src="testMenuS.html" name="menuQuestions"></iframe>
+
+    <div class="dd">
+      <iframe class="content" name="question"></iframe>
+    </div>
+
+  </body>
+</html>

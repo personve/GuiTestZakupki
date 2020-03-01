@@ -37,11 +37,13 @@
       />
     </form>
 
+    <p>12, Иванов, 123</p>
+
     <script>
       function checkData(event) {
         event.preventDefault();
-        if (document.forms.form2.tab_no.value === "555") {
-          if (document.forms.form2.last_name.value === "Вакарова") {
+        if (document.forms.form2.tab_no.value === "12") {
+          if (document.forms.form2.last_name.value === "Иванов") {
             if (document.forms.form2.pass.value === "123") {
               location.href = "tests/choose_test.html";
             } else {
