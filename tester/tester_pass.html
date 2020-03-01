@@ -7,29 +7,35 @@
       name="description"
       content="Веб-приложение для тестирования в сфере закупок"
     />
-    <link href="../css.css" />
-    <title>Главное меню</title>
+    <link rel="stylesheet" type="text/css" href="../css.css" />
+    <title>Вход для тестирования</title>
   </head>
 
   <body>
     <form action="../main.html">
-      <button>В главное меню</button>
+      <button class="goToMainMenu">в главное меню</button>
     </form>
 
     <h1>Введите табельный номер и свою фамилию</h1>
 
-    <h2>Пароль-подтверждение вводит проверяющий</h2>
-
-    <form name="form2">
+    <form name="form2" class="pass">
       <input type="text" name="tab_no" placeholder="Табельный номер" required />
       <input type="text" name="last_name" placeholder="Фамилия" required />
+
+      <p style="margin-top: 10px; text-align: center;">
+        Пароль-подтверждение вводит <br />
+        (пароль: 123)
+      </p>
+
       <input
         type="password"
         name="pass"
         placeholder="Пароль-подтверждение"
         required
       />
+
       <input
+        style="margin-top: 10px;"
         type="submit"
         name="submit"
         value="Вход"
@@ -37,13 +43,11 @@
       />
     </form>
 
-    <p>12, Иванов, 123</p>
-
     <script>
       function checkData(event) {
         event.preventDefault();
-        if (document.forms.form2.tab_no.value === "12") {
-          if (document.forms.form2.last_name.value === "Иванов") {
+        if (document.forms.form2.tab_no.value !== null) {
+          if (document.forms.form2.last_name.value !== null) {
             if (document.forms.form2.pass.value === "123") {
               location.href = "tests/choose_test.html";
             } else {
