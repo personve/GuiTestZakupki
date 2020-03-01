@@ -7,31 +7,29 @@
       name="description"
       content="Веб-приложение для тестирования в сфере закупок"
     />
-    <link href="../css.css" />
-    <title>Главное меню</title>
+    <link rel="stylesheet" type="text/css" href="../css.css" />
+    <title>Вход</title>
   </head>
 
   <body>
     <form action="../main.html">
-      <button>В главное меню</button>
+      <button class="goToMainMenu">в главное меню</button>
     </form>
 
-    <h1>Введите пароль для входа, как проверяющий</h1>
+    <p class="head">Введите пароль<br> для входа в раздел проверки результатов тестирования</p>
 
-    <form name="form1">
+    <form name="form" class="pass">
       <input type="text" name="pass" placeholder="Введите пароль" required />
-      <input
-        type="submit"
-        name="submit"
-        value="Вход"
-        onclick="checkPassword(event)"
-      />
+      <input type="submit" value="Вход" onclick="checkPassword(event)" />
     </form>
+
+    <p style="margin-top: 20px; text-align: center;">Пароль находится у начальника службы ОТ и ПБ<br>
+    (пароль: 123)</p>
 
     <script>
       function checkPassword(event) {
         event.preventDefault();
-        if (document.forms.form1.pass.value === "123") {
+        if (document.forms.form.pass.value === "123") {
           location.href = "results.html";
         } else {
           alert("Неверный пароль");

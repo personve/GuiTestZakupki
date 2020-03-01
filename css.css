@@ -1,16 +1,78 @@
-.form {
-  width: 80px;
-  color: brown;
+.head {
+  text-align: center;
+  font: bold 25px arial;
+  margin-bottom: 50px;
 }
+
+.choose {
+  height: 60px;
+  width: 400px;
+  font-size: 20px;
+}
+
+.choose,
+.goToMainMenu {
+  font-style: italic;
+  border-width: 3px;
+}
+
+.goToMainMenu {
+  font-size: 15px;
+  height: 40px;
+  width: 200px;
+}
+.pass input[type="text"] {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  width: 200pt;
+  height: 20pt;
+  border-width: 2pt;
+  background: radial-gradient(#ffffff, #e0e0e0);
+}
+
+.choose,
+.pass input[type="text"],
+.pass input[type="submit"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.goToMainMenu,
+.choose,
+.pass input[type="submit"] {
+  font-family: arial;
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: #569cec; /* фон кнопки */
+  padding: 7px 20px; /* отступ от текста */
+  outline: none; /* убирать контур */
+}
+
+.goToMainMenu:hover,
+.choose:hover,
+.pass input[type="submit"]:hover {
+  background: #82b4ec;
+} /* при наведении курсора мышки */
+
+.goToMainMenu:active,
+.pass input[type="submit"]:active,
+.choose:active {
+  background: #046feb;
+} /* при нажатии */
 
 .que {
   display: block;
 }
 
-h1 {
-  color: brown;
-}
+table {
+  border-collapse: collapse; /*убираем пустые промежутки между ячейками*/
+  border: 1px solid grey; /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+  }
 
+/* progress bar */
 
 .wrapper {
   margin: 0 auto;
@@ -21,7 +83,6 @@ h1 {
 .progress_line {
   background-color: #2fc54d;
   bottom: 0;
-  
   left: 0;
   top: 0;
   position: absolute;
@@ -35,4 +96,38 @@ h1 {
   overflow: hidden;
   position: relative;
   width: 100%;
+}
+
+.numQueButton {
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+  margin-left: 10px;
+  border-radius: 50px;
+  font: 35px arial bol;
+  color: white;
+  text-align: center;
+}
+
+.squareButton {
+  height: 70px;
+  width: 70px;
+  background-color: azure;
+}
+
+.resultButton {
+  height: 70px;
+  width: 150px;
+  background-color: blue;
+  margin-left: 20px;
+  border-radius: 50px;
+  font: 20px arial bol;
+  color: white;
+  text-align: center;
+}
+
+.notSquareButton {
+  height: 80px;
+  width: 190px;
+  background-color: azure;
 }
