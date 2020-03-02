@@ -63,7 +63,7 @@ function getIdOfClickButton() {
           case "wrong_otv_1_3":
           case "wrong_otv_1_4":
             document.getElementById("question1").style.display = "none";
-            // res.innerHTML = '16';
+            // res.innerHTML = '17';
             break;
           default:
             break;
@@ -74,5 +74,5 @@ function getIdOfClickButton() {
   }
 
   res.innerHTML = summ;
-  // res.innerHTML = '16';
-}
+  // res.innerHTML = '18';
+} /* Подсчет правильных ответов */
