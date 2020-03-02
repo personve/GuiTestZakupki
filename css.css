@@ -103,9 +103,11 @@ td:first-child {
 /* progress bar */
 
 .wrapper {
-  margin: 0 auto;
+  left: 50%;
+  margin-left: -250px;
   max-width: 500px;
   width: 80%;
+  position: fixed;
 }
 
 .progress_line {
