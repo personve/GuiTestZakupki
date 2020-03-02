@@ -7,6 +7,7 @@ function checkData(event) {
         document.getElementById("hidePass").style.display = "none";
         document.getElementById("questions").style.display = "block";
         document.getElementById("progressBar").style.display = "block";
+
         progress();
         getIdOfClickButton();
       } else {
@@ -38,25 +39,40 @@ function progress() {
       clearInterval(id);
       document.getElementById("questions").style.display = "none";
       document.getElementById("progressBar").style.display = "none";
+      document.getElementById("result").style.display = "block";
     } else {
       width--;
       elem.style.width = width + "%";
     }
   }
-} /* Основной код теста */
+} /* Прогресс Бар */
 
 function getIdOfClickButton() {
   var summ = 0;
-  var buttons = question1.querySelectorAll("button");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function(e) {
-      if (e.target.getAttribute("id") === "right_otv_1_1") {
-        document.getElementById("question1").style.display = "none";
-        res.innerHTML += 1;
-      } else if (e.target.getAttribute("id") !== "right_otv_1_1") {
-        document.getElementById("question1").style.display = "none";
-        res.innerHTML += 2;
+  var button = questions.querySelectorAll("button");
+  for (var i = 0; i < button.length; i++) {
+    button[i].addEventListener("click", function(e) {
+      for (;;) {
+        switch (e.target.getAttribute("id")) {
+          case "right_otv_1_1":
+            summ = summ + 1;
+            document.getElementById("question1").style.display = "none";
+            // res.innerHTML = '16';
+            break;
+          case "wrong_otv_1_2":
+          case "wrong_otv_1_3":
+          case "wrong_otv_1_4":
+            document.getElementById("question1").style.display = "none";
+            // res.innerHTML = '16';
+            break;
+          default:
+            break;
+        }
+        break;
       }
     });
   }
+
+  res.innerHTML = summ;
+  // res.innerHTML = '16';
 }
