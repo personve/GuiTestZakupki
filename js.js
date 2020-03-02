@@ -8,6 +8,7 @@ function checkData(event) {
         document.getElementById("questions").style.display = "block";
         document.getElementById("progressBar").style.display = "block";
         progress();
+        getIdOfClickButton();
       } else {
         alert("Неверный пароль-подтверждение");
       }
@@ -30,16 +31,13 @@ function fio_tab() {
 function progress() {
   var width = 100;
   var elem = document.getElementById("progress_line");
-  var time1 = Math.round((500 * 1000) / 100);
+  var time1 = Math.round((6 * 1000) / 100);
   var id = setInterval(progressStatus, time1);
-
   function progressStatus() {
     if (width == 0) {
       clearInterval(id);
       document.getElementById("questions").style.display = "none";
       document.getElementById("progressBar").style.display = "none";
-      document.getElementById("result").style.display = "block";
-      res.innerHTML = 16; /* Результат теста */
     } else {
       width--;
       elem.style.width = width + "%";
@@ -47,16 +45,18 @@ function progress() {
   }
 } /* Основной код теста */
 
-function getBall() {
-  var ball = 0;
-  rightBut1.onclick = function() {};
-}
-
-function getSumm() {
-  var sumRes = 0;
-  for (var i = 0; i < Array.length; i++) {
-    sumRes += parseInt(mass[i]);
+function getIdOfClickButton() {
+  var summ = 0;
+  var buttons = question1.querySelectorAll("button");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function(e) {
+      if (e.target.getAttribute("id") === "right_otv_1_1") {
+        document.getElementById("question1").style.display = "none";
+        res.innerHTML += 1;
+      } else if (e.target.getAttribute("id") !== "right_otv_1_1") {
+        document.getElementById("question1").style.display = "none";
+        res.innerHTML += 2;
+      }
+    });
   }
-  return sumRes;
 }
-
