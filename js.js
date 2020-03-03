@@ -1,3 +1,17 @@
+// Константы
+
+const timeOfTest = 60; // Задать в секундах
+const time1 = Math.round((timeOfTest * 1000) / 100); // Время теста в миллисекундах
+
+
+
+// Переменная результата теста
+
+var summ = 0;
+var counter = 0; // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
+
+
+
 // Прятать и показывать элементы
 
 function hideElement(elem) {
@@ -8,8 +22,6 @@ function seeElement(elem) {
   document.querySelector(elem).style.display = "block";
 }
 
-
-
 /* Валидация для начала теста */
 
 function checkData(event) {
@@ -17,13 +29,16 @@ function checkData(event) {
   if (document.forms.form2.tab_no.value !== null) {
     if (document.forms.form2.name.value !== null) {
       if (document.forms.form2.pass.value === "123") {
-        
+        getFioTab();
+
         hideElement("#pass");
         hideElement(".goToMainMenu");
+
         seeElement("#space");
         seeElement("#progressBar");
         seeElement("#questions");
         seeElement("#finishTest");
+
         passTest();
         getIdOfClickButton();
       } else {
@@ -37,8 +52,6 @@ function checkData(event) {
   }
 }
 
-
-
 /* Заполнение полей тестируемого в конце теста (фио, табельный, результат теста) */
 
 function getFioTab() {
@@ -47,13 +60,6 @@ function getFioTab() {
   fio.innerHTML = val1;
   tab.innerHTML = val2;
 }
-
-
-
-// Константы
-
-const timeOfTest = 5; // Задать в секундах
-const time1 = Math.round((timeOfTest * 1000) / 100); // Время теста в миллисекундах
 
 
 
@@ -73,9 +79,9 @@ function passTest() {
 
       clearInterval(id);
       counterButtons(); //Подсчет результатов теста
-      
-      getFioTab();
 
+      // seeElement("#hello");
+      
       seeElement("#hello");
       seeElement("#result");
       seeElement(".goToMainMenu");
@@ -88,26 +94,22 @@ function passTest() {
 
 
 
-// Переменная результата теста
-
-var summ = 0; 
-var counter = 0; // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
-
-
-
 // Подсчет результата теста, вывод в html
 
 function counterButtons() {
   if (counter != 0 || counter == 5) {
-    var ball = Math.round((summ * 10) / 5)
-    if (ball == 1){
-    res.innerHTML = ball + ' балл';}
-    else if(ball == 2 || ball == 3 || ball == 4){
-      res.innerHTML = ball + ' балла';
+    var ball = Math.round((summ * 10) / 5);
+    if (ball == 1) {
+      res.innerHTML = ball + " балл";
+    } else if (ball == 2 || ball == 3 || ball == 4) {
+      res.innerHTML = ball + " балла";
+    } else {
+      res.innerHTML = ball + " баллов";
+    }
   } else {
-    res.innerHTML = ball + ' баллов';
+    res.innerHTML = 0 + " баллов";
   }
-} 
+}
 
 function getIdOfClickButton() {
   var button = questions.querySelectorAll("button");
@@ -119,9 +121,6 @@ function getIdOfClickButton() {
 } /* Создание списка кнопок с ответами для нажатия */
 
 function clickButton(event) {
-  var summ = 0;
-  for (;;) {
-    console.log(event.target.getAttribute("id"));
   switch (event.target.getAttribute("id")) {
     case "right_otv_1_1": // Выбор ответа на Вопрос 1
       counter++;
