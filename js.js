@@ -32,7 +32,7 @@ function fio_tab() {
 function progress() {
   var width = 100;
   var elem = document.getElementById("progress_line");
-  var time1 = Math.round((6 * 1000) / 100);
+  let time1 = Math.round((6 * 1000) / 100);
   var id = setInterval(progressStatus, time1);
   function progressStatus() {
     if (width == 0) {
@@ -48,31 +48,53 @@ function progress() {
 } /* Прогресс Бар */
 
 function getIdOfClickButton() {
-  var summ = 0;
+  
   var button = questions.querySelectorAll("button");
-  for (var i = 0; i < button.length; i++) {
+  for (let i = 0; i < button.length; i++) {
+    // button[i].addEventListener("click", clickButton(event));
     button[i].addEventListener("click", function(e) {
-      for (;;) {
-        switch (e.target.getAttribute("id")) {
-          case "right_otv_1_1":
-            summ = summ + 1;
-            document.getElementById("question1").style.display = "none";
-            // res.innerHTML = '16';
-            break;
-          case "wrong_otv_1_2":
-          case "wrong_otv_1_3":
-          case "wrong_otv_1_4":
-            document.getElementById("question1").style.display = "none";
-            // res.innerHTML = '17';
-            break;
-          default:
-            break;
-        }
-        break;
-      }
+      clickButton(e);
     });
   }
+} /* Создание списка кнопок с ответами для нажатия */
 
-  res.innerHTML = summ;
-  // res.innerHTML = '18';
-} /* Подсчет правильных ответов */
+function clickButton(event) {
+  var summ = 0;
+  for (;;) {
+    console.log(event.target.getAttribute("id"));
+    switch (event.target.getAttribute("id")) {
+      case "right_otv_1_1":
+        summ = summ + 1;
+        hideQuestion1();
+        // res.innerHTML = '16';
+        break;
+      case "wrong_otv_1_2":
+      case "wrong_otv_1_3":
+      case "wrong_otv_1_4":
+        hideQuestion1();
+        // res.innerHTML = '17';
+        break;
+      default:
+        break;
+    }
+    break;
+  }
+  res.innerHTML = (summ*100/5);
+} /* Действие после нажатия на кнопку с ответом */
+
+function hideQuestion1() {
+  document.querySelector("#question1").style.display = "none";
+}
+
+function hideQuestion2() {
+  document.querySelector("#question2").style.display = "none";
+}
+function hideQuestion3() {
+  document.querySelector("#question3").style.display = "none";
+}
+function hideQuestion4() {
+  document.querySelector("#question4").style.display = "none";
+}
+function hideQuestion5() {
+  document.querySelector("#question5").style.display = "none";
+}
