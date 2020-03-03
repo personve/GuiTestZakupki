@@ -12,7 +12,9 @@
   </head>
 
   <body>
-    <div id="progressBar" class="wrapper" style="display: none;">
+    <div id="space"></div>
+
+    <div id="progressBar" class="wrapper">
       <div class="progress_line_bg">
         <div class="progress_line" id="progress_line"></div>
       </div>
@@ -22,7 +24,7 @@
       <button class="goToMainMenu">в главное меню</button>
     </form>
 
-    <div id="hidePass">
+    <div id="pass">
       <p class="head">Введите табельный номер, фамилию и инициалы</p>
 
       <form name="form2" class="pass">
@@ -66,11 +68,11 @@
       </form>
     </div>
 
-    <p id="hideHello" class="head" style="display: none;">
-      Тест сдает <b id="fio"></b> (табельный номер <b id="tab"></b>)
+    <p id="hello" class="head">
+      Тестируемый сотрудник <b id="fio"></b> (табельный номер <b id="tab"></b>)
     </p>
 
-    <div id="questions" style="display: none">
+    <div id="questions">
       <div id="question1">
         <div class="question">
           <p><b>Вопрос 1</b></p>
@@ -222,11 +224,16 @@
       </div>
     </div>
 
-    <p id="result" style="display: none" class="head">
-      Ваш результат теста <b id="res"></b>%
+    <p id="result" class="head">
+      Ваш результат по тесту "Законодательство" <b id="res"></b>
     </p>
 
+    <button id="finishTest" class="goToMainMenu">
+      завершить тест
+    </button>
+
     <script src="../js.js"></script>
-    
   </body>
 </html>
+
+<!-- 13322 -->
