@@ -1,7 +1,9 @@
 // Константы
 
-const timeOfTest = 60; // Задать в секундах
-const time1 = Math.round((timeOfTest * 1000) / 100); // Время теста в миллисекундах
+const state = {
+  timeOfTest: Math.round((10 * 1000) / 100),
+  pass: "123" // Время теста в миллисекундах
+};
 
 // Переменная результата теста
 
@@ -11,42 +13,57 @@ var exitTest;
 
 // Прятать и показывать элементы
 
-function hideElement(elem) {
-  document.querySelector(elem).style.display = "none";
+function seeHideElement(...theArgs) {
+  for (let i = 0; i < theArgs.length; i++) {
+    let elem = theArgs[i].querySelector(id);
+    console.log(elem);
+    if (elem.style.display == "none" || elem.style.display == '') {
+      elem.style.display = "block";
+    } else if (elem.style.display == "block") {
+      elem.style.display = "none";
+    }
+  }
 }
 
-function seeElement(elem) {
-  document.querySelector(elem).style.display = "block";
+var button = questions.querySelectorAll("button");
+for (let i = 0; i < button.length; i++) {
+  button[i].addEventListener("click", function(e) {
+    clickButton(e);
+  });
 }
 
 /* Валидация для начала теста */
 
 function checkData(event) {
   event.preventDefault();
-  if (document.forms.form2.tab_no.value !== null) {
-    if (document.forms.form2.name.value !== null) {
-      if (document.forms.form2.pass.value === "123") {
-        getFioTab();
+  let form = document.forms.form2;
+  switch (true) {
+    case form.tab_no.value == null:
+      alert("Неверный табельный");
+      break;
 
-        hideElement("#pass");
-        hideElement(".goToMainMenu");
-
-        seeElement("#space");
-        seeElement("#progressBar");
-        seeElement("#questions");
-        seeElement("#finishTest");
-
-        passTest();
-        getIdOfClickButton();
-        fastFinishTest();
-      } else {
-        alert("Неверный пароль-подтверждение");
-      }
-    } else {
+    case form.name.value == null:
       alert("Неверная фамилия");
-    }
-  } else {
-    alert("Неверный табельный");
+      break;
+
+    case form.pass.value != "123":
+      alert("Неверный пароль-подтверждение");
+      break;
+
+    default:
+      getFioTab();
+      seeHideElement(
+        "#pass",
+        ".goToMainMenu",
+        "#space",
+        "#progressBar",
+        "#questions",
+        "#finishTest"
+      );
+      passTest();
+      getIdOfClickButton();
+      fastFinishTest();
+      break;
   }
 }
 
@@ -63,22 +80,23 @@ function getFioTab() {
 //  ЛИБО после нажатия 5 кнопок с ответами по 5 вопросам ПРОИСХОДИТ подсчет балла теста
 
 function passTest() {
-  var width = 100;
-  var elem = document.querySelector("#progress_line");
-  var id = setInterval(progressStatus, time1);
+  let width = 100;
+  let elem = document.querySelector("#progress_line");
+  let id = setInterval(progressStatus, state.timeOfTest);
   function progressStatus() {
     if (width == 0 || counter == 5 || exitTest) {
-      hideElement("#finishTest");
-      hideElement("#progressBar");
-      hideElement("#space");
-      hideElement("#questions");
+      seeHideElement(
+        "#finishTest",
+        "#progressBar",
+        "#space",
+        "#questions",
+        "#hello",
+        "#result",
+        ".goToMainMenu"
+      );
 
       clearInterval(id);
       counterButtons(); //Подсчет результатов теста
-
-      seeElement("#hello");
-      seeElement("#result");
-      seeElement(".goToMainMenu");
     } else {
       width--;
       elem.style.width = width + "%";
@@ -89,7 +107,7 @@ function passTest() {
 // Подсчет результата теста, вывод в html
 
 function counterButtons() {
-  if (counter != 0 || counter == 5 ) {
+  if (counter != 0 || counter == 5) {
     var ball = Math.round((summ * 10) / 5);
     if (ball == 1) {
       res.innerHTML = ball + " балл";

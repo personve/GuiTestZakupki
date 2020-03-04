@@ -21,9 +21,13 @@
   height: 40px;
   width: 200px;
 }
+
+.pass {
+  display: block;
+}
+
 .pass input[type="password"],
 .pass input[type="text"] {
-  display: block;
   text-align: center;
   font-size: 14px;
   width: 200pt;
@@ -192,7 +196,6 @@ td:first-child {
   text-align: center;
   font: 16pt Arial;
   color: red;
-  
 }
 
 #res {
