@@ -38,6 +38,7 @@ function checkData(event) {
 
         passTest();
         getIdOfClickButton();
+        fastFinishTest();
       } else {
         alert("Неверный пароль-подтверждение");
       }
@@ -66,7 +67,7 @@ function passTest() {
   var elem = document.querySelector("#progress_line");
   var id = setInterval(progressStatus, time1);
   function progressStatus() {
-    if (width == 0 || counter == 5) {
+    if (width == 0 || counter == 5 || exitTest) {
       hideElement("#finishTest");
       hideElement("#progressBar");
       hideElement("#space");
@@ -90,7 +91,7 @@ function passTest() {
 // Подсчет результата теста, вывод в html
 
 function counterButtons() {
-  if (counter != 0 || counter == 5 && exitTest) {
+  if (counter != 0 || counter == 5 ) {
     var ball = Math.round((summ * 10) / 5);
     if (ball == 1) {
       res.innerHTML = ball + " балл";
@@ -203,8 +204,8 @@ function clickButton(event) {
 //   return true;
 // }
 
-function fastFinishTest(ev) {
-  ev.preventDefault();
-  console.log("xjxf");
-  exitTest = true;
+function fastFinishTest() {
+  document.querySelector("#finishTest").onclick = function() {
+    exitTest = true;
+  };
 }
