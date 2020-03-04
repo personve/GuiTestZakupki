@@ -76,8 +76,6 @@ function passTest() {
       clearInterval(id);
       counterButtons(); //Подсчет результатов теста
 
-      // seeElement("#hello");
-
       seeElement("#hello");
       seeElement("#result");
       seeElement(".goToMainMenu");
