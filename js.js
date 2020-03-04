@@ -3,14 +3,11 @@
 const timeOfTest = 60; // Задать в секундах
 const time1 = Math.round((timeOfTest * 1000) / 100); // Время теста в миллисекундах
 
-
-
 // Переменная результата теста
 
 var summ = 0;
 var counter = 0; // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
-
-
+var exitTest;
 
 // Прятать и показывать элементы
 
@@ -61,8 +58,6 @@ function getFioTab() {
   tab.innerHTML = val2;
 }
 
-
-
 //  Прогресс Бар, ПО ОКОНЧАНИЮ которого ЛИБО по нажатию кнопки завершение теста,
 //  ЛИБО после нажатия 5 кнопок с ответами по 5 вопросам ПРОИСХОДИТ подсчет балла теста
 
@@ -81,7 +76,7 @@ function passTest() {
       counterButtons(); //Подсчет результатов теста
 
       // seeElement("#hello");
-      
+
       seeElement("#hello");
       seeElement("#result");
       seeElement(".goToMainMenu");
@@ -92,12 +87,10 @@ function passTest() {
   }
 }
 
-
-
 // Подсчет результата теста, вывод в html
 
 function counterButtons() {
-  if (counter != 0 || counter == 5) {
+  if (counter != 0 || counter == 5 && exitTest) {
     var ball = Math.round((summ * 10) / 5);
     if (ball == 1) {
       res.innerHTML = ball + " балл";
@@ -111,6 +104,8 @@ function counterButtons() {
   }
 }
 
+/* Создание списка кнопок с ответами для нажатия */
+
 function getIdOfClickButton() {
   var button = questions.querySelectorAll("button");
   for (let i = 0; i < button.length; i++) {
@@ -118,7 +113,11 @@ function getIdOfClickButton() {
       clickButton(e);
     });
   }
-} /* Создание списка кнопок с ответами для нажатия */
+}
+
+/* Действие после нажатия на кнопку с ответом */
+// Прячем ответ, чтобы не нажать вторую (или более) кнопку с ответом в одном
+// вопросе = нарушение логики кода!
 
 function clickButton(event) {
   switch (event.target.getAttribute("id")) {
@@ -185,14 +184,27 @@ function clickButton(event) {
     default:
       break;
   }
-} /* Действие после нажатия на кнопку с ответом */
-
-// Прячем ответ, чтобы не нажать вторую (или более) кнопку с ответом в одном
-// вопросе = нарушение логики кода!
+}
 
 // function fastFinishTest() {
+
 //   document.querySelector("#finishTest").onclick = function() {
 //     return;
 //   };
 //   return true;
 // }
+
+// function fastFinishTest() {
+//   var button = questions.querySelector("#finishTest");
+//   button.addEventListener("click", function() {
+//     console.log("xjxf");
+//     return;
+//   });
+//   return true;
+// }
+
+function fastFinishTest(ev) {
+  ev.preventDefault();
+  console.log("xjxf");
+  exitTest = true;
+}

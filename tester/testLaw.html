@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div id="space"></div>
+    <div id="space"><p><b>Время идёт!</b></p></div>
 
     <div id="progressBar" class="wrapper">
       <div class="progress_line_bg">
@@ -228,9 +228,11 @@
       Ваш результат по тесту "Законодательство" <b id="res"></b>
     </p>
 
-    <button id="finishTest" class="goToMainMenu">
+    <form>
+    <button id="finishTest" class="goToMainMenu" onclick="fastFinishTest(ev)">
       завершить тест
     </button>
+  </form>
 
     <script src="../js.js"></script>
   </body>
