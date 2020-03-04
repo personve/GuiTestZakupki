@@ -1,13 +1,14 @@
 // Константы
 
-const timeOfTest = 60; // Задать в секундах
+const timeOfTest = 10; // Задать в секундах
 const time1 = Math.round((timeOfTest * 1000) / 100); // Время теста в миллисекундах
 
 // Переменная результата теста
 
 var summ = 0;
 var counter = 0; // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
-var exitTest;
+var exitTest = false;
+var prBarFinish = false;
 
 // Прятать и показывать элементы
 
@@ -39,6 +40,7 @@ function checkData(event) {
         passTest();
         getIdOfClickButton();
         fastFinishTest();
+        checkOperations();
       } else {
         alert("Неверный пароль-подтверждение");
       }
@@ -59,28 +61,17 @@ function getFioTab() {
   tab.innerHTML = val2;
 }
 
-//  Прогресс Бар, ПО ОКОНЧАНИЮ которого ЛИБО по нажатию кнопки завершение теста,
-//  ЛИБО после нажатия 5 кнопок с ответами по 5 вопросам ПРОИСХОДИТ подсчет балла теста
+//  Прогресс Бар 
 
 function passTest() {
   var width = 100;
   var elem = document.querySelector("#progress_line");
   var id = setInterval(progressStatus, time1);
   function progressStatus() {
-    if (width == 0 || counter == 5 || exitTest) {
-      hideElement("#finishTest");
-      hideElement("#progressBar");
-      hideElement("#space");
-      hideElement("#questions");
-
+    if (width == 0) {
       clearInterval(id);
-      counterButtons(); //Подсчет результатов теста
-
-      // seeElement("#hello");
-
-      seeElement("#hello");
-      seeElement("#result");
-      seeElement(".goToMainMenu");
+      prBarFinish = true;
+      
     } else {
       width--;
       elem.style.width = width + "%";
@@ -88,10 +79,31 @@ function passTest() {
   }
 }
 
-// Подсчет результата теста, вывод в html
+//  Проверка выполняемых операций: если уже решили 5 заданий,
+//  или если нажали "завершить тест", или если завершился Прогресс Бар
+
+function checkOperations() {
+  while (counter != 5 || exitTest == false || prBarFinish == false) {
+      if (counter == 5 || exitTest == true || prBarFinish == true){
+      hideElement("#finishTest");
+      hideElement("#progressBar");
+      hideElement("#space");
+      hideElement("#questions");
+
+      counterButtons(); //Подсчет результатов теста
+
+      seeElement("#hello");
+      seeElement("#result");
+      seeElement(".goToMainMenu");
+      break;
+    }
+  }
+}
+
+// Подсчет результата теста, передача значения в html
 
 function counterButtons() {
-  if (counter != 0 || counter == 5 ) {
+  if (counter != 0 || counter == 5) {
     var ball = Math.round((summ * 10) / 5);
     if (ball == 1) {
       res.innerHTML = ball + " балл";
