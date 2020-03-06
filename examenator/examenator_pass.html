@@ -16,21 +16,31 @@
       <button class="goToMainMenu">в главное меню</button>
     </form>
 
-    <p class="head">Введите пароль<br> для входа в раздел проверки результатов тестирования</p>
+    <p class="head">
+      Введите пароль<br />
+      для просмотра списка работников, допущенных к сдаче теста
+    </p>
 
     <form name="form" class="pass">
-      <input type="password" name="pass" placeholder="Введите пароль" required />
+      <input
+        type="password"
+        name="pass"
+        placeholder="Введите пароль"
+        required
+      />
       <input type="submit" value="Вход" onclick="checkPassword(event)" />
     </form>
 
-    <p style="margin-top: 20px; text-align: center;">Пароль находится у начальника службы ОТ и ПБ<br>
-    (пароль: 123)</p>
+    <p style="margin-top: 20px; text-align: center;">
+      Пароль находится у начальника службы ОТ и ПБ<br />
+      (пароль: 123)
+    </p>
 
     <script>
       function checkPassword(event) {
         event.preventDefault();
-        if (document.forms.form.pass.value === "123") {
-          location.href = "results.html";
+        if (document.forms.form.pass.value == "123") {
+          location.href = "list.html";
         } else {
           alert("Неверный пароль");
         }

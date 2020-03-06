@@ -15,11 +15,11 @@ var exitTest;
 
 function seeHideElement(...theArgs) {
   for (let i = 0; i < theArgs.length; i++) {
-    let elem = theArgs[i].querySelector(id);
-    console.log(elem);
-    if (elem.style.display == "none" || elem.style.display == '') {
+    let elem = document.querySelector(theArgs[i]);
+    let stl = getComputedStyle(elem).display;
+    if (stl == "none" || stl == null) {
       elem.style.display = "block";
-    } else if (elem.style.display == "block") {
+    } else if (stl == "block") {
       elem.style.display = "none";
     }
   }
@@ -34,9 +34,17 @@ for (let i = 0; i < button.length; i++) {
 
 /* Валидация для начала теста */
 
+import { cube, foo } from '../examenator/list';
+console.log(cube()); // 27
+console.log(foo);
+
+
+
+
 function checkData(event) {
   event.preventDefault();
   let form = document.forms.form2;
+
   switch (true) {
     case form.tab_no.value == null:
       alert("Неверный табельный");
