@@ -34,24 +34,22 @@ for (let i = 0; i < button.length; i++) {
 
 /* Валидация для начала теста */
 
-import { cube, foo } from '../examenator/list';
-console.log(cube()); // 27
-console.log(foo);
-
-
 
 
 function checkData(event) {
   event.preventDefault();
   let form = document.forms.form2;
+  import { fio_list, tab_list } from "./../examenator/list.js";
+  let fio = fio_list();
+  let tab = tab_list();
 
   switch (true) {
-    case form.tab_no.value == null:
-      alert("Неверный табельный");
-      break;
-
     case form.name.value == null:
       alert("Неверная фамилия");
+      break;
+
+    case form.tab_no.value == null:
+      alert("Неверный табельный");
       break;
 
     case form.pass.value != "123":

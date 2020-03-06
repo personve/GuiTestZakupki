@@ -1,7 +1,13 @@
-function cube() {
+function fio_list() {
+    
+    
     return 18;
   }
-  const foo = 4 + 7;
-  export { cube, foo };
+  function fio_list() {
+    return 19;
+  }
+  export { fio_list, tab_list };
 
- 
+// export function sayHi(user) {
+//   return `Hello, ${user}!`;
+// }

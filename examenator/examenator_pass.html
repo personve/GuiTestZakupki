@@ -25,21 +25,29 @@
       <input
         type="password"
         name="pass"
+        value="123"
         placeholder="Введите пароль"
         required
       />
-      <input type="submit" value="Вход" onclick="checkPassword(event)" />
+
+      <input
+        type="submit"
+        value="Вход"
+        onclick="checkPassword(event)"
+        style="margin-top: 10px;"
+      />
     </form>
 
     <p style="margin-top: 20px; text-align: center;">
-      Пароль находится у начальника службы ОТ и ПБ<br />
-      (пароль: 123)
+      Пароль находится у начальника службы ОТ и ПБ
     </p>
 
     <script>
+      const state = { pass: "123" };
+
       function checkPassword(event) {
         event.preventDefault();
-        if (document.forms.form.pass.value == "123") {
+        if (document.forms.form.pass.value == state.pass) {
           location.href = "list.html";
         } else {
           alert("Неверный пароль");
