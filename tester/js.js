@@ -34,18 +34,21 @@ for (let i = 0; i < button.length; i++) {
 
 /* Валидация для начала теста */
 
-
-
 function checkData(event) {
   event.preventDefault();
   let form = document.forms.form2;
-  import { fio_list, tab_list } from "./../examenator/list.js";
-  let fio = fio_list();
-  let tab = tab_list();
+  let fioV = form.name.value;
+  // let tabV = form.tab_no.value;
+  // let dateV = form.name.value;
+  export { fioV };
+
+  import { true_value } from "./../examenator/list.js";
+  // let fio = fio_list();
+  // let tab = tab_list();
 
   switch (true) {
-    case form.name.value == null:
-      alert("Неверная фамилия");
+    case true_value:
+      alert("Верно");
       break;
 
     case form.tab_no.value == null:
