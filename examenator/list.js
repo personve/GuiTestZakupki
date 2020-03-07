@@ -1,9 +1,3 @@
-// function true_value() {
-//   let value = true;
-//   return console.log(value);
-// }
-
-// true_value();
 
 function fio_list() {
     let tester = {};

@@ -5,9 +5,17 @@ const state = {
   pass: "123" // пароль для начала теста
 };
 
+let rightAnswersLaw = [
+  "right_otv_1_1",
+  "right_otv_2_3",
+  "right_otv_3_3",
+  "right_otv_4_2",
+  "right_otv_5_2"
+];
+
+var testerAnswersLaw = {};
 // Переменная результата теста
 
-var summ = 0;
 var counter = 0; // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
 var exitTest;
 var place;
@@ -141,11 +149,60 @@ function passTestTime() {
   }
 }
 
+//  Потеря фокуса
+
+function focusOut() {
+  window.onblur = function() {
+    place = true;
+  };
+}
+
+/* Создание списка кнопок с ответами для нажатия */
+
+function getIdOfClickButton() {
+  let button = questions.querySelectorAll("button");
+  for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener("click", function(e) {
+      clickButton(e);
+    });
+  }
+}
+
+/* Действие после нажатия на кнопку с ответом */
+// Прячем ответ, чтобы не нажать вторую (или более) кнопку с ответом в одном
+// вопросе = нарушение логики кода!
+
+function clickButton(event) {
+  let nameQuestion = "#question" + (counter + 1);
+  let idAnswer = event.target.getAttribute("id");
+  testerAnswersLaw[nameQuestion] = idAnswer;
+  counter++;
+  seeHideElement(nameQuestion);
+}
+
+//  Преждевременное завершение теста.
+//  После него идет подсчет того, что нарешали
+
+function fastFinishTest() {
+  document.querySelector("#finishTest").onclick = function() {
+    exitTest = true;
+  };
+}
+
 // Подсчет результата теста, вывод в html
 
 function counterButtons() {
+  let summ = 0;
+  for (key in testerAnswersLaw) {
+    for (let i = 0; i < rightAnswersLaw.length; i++) {
+      if (testerAnswersLaw[key] == rightAnswersLaw[i]) {
+        summ++;
+      }
+    }
+  }
+
   if (counter != 0 || counter == 5) {
-    var ball = Math.round((summ * 10) / 5);
+    let ball = Math.round((summ * 10) / 5);
     if (ball == 1) {
       res.innerHTML = ball + " балл";
     } else if (ball == 2 || ball == 3 || ball == 4) {
@@ -156,108 +213,4 @@ function counterButtons() {
   } else {
     res.innerHTML = 0 + " баллов";
   }
-}
-
-/* Создание списка кнопок с ответами для нажатия */
-
-function getIdOfClickButton() {
-  var button = questions.querySelectorAll("button");
-  for (let i = 0; i < button.length; i++) {
-    button[i].addEventListener("click", function(e) {
-      clickButton(e);
-    });
-  }
-}
-
-//  Потеря фокуса
-
-function focusOut() {
-  window.onblur = function() {
-    place = true;
-  };
-}
-
-/* Действие после нажатия на кнопку с ответом */
-// Прячем ответ, чтобы не нажать вторую (или более) кнопку с ответом в одном
-// вопросе = нарушение логики кода!
-
-function clickButton(event) {
-  counter++;
-  switch (event.target.getAttribute("id")) {
-    case "right_otv_1_1": // Выбор ответа на Вопрос 1
-      summ++;
-      seeHideElement("#question1");
-      break;
-    case "wrong_otv_1_2":
-    case "wrong_otv_1_3":
-    case "wrong_otv_1_4":
-      seeHideElement("#question1");
-      break;
-
-    case "right_otv_2_3": // Выбор ответа на Вопрос 2
-      summ++;
-      seeHideElement("#question2");
-      break;
-    case "wrong_otv_2_1":
-    case "wrong_otv_2_2":
-    case "wrong_otv_2_4":
-      seeHideElement("#question2");
-      break;
-
-    case "right_otv_3_3": // Выбор ответа на Вопрос 3
-      summ++;
-      seeHideElement("#question3");
-      break;
-    case "wrong_otv_3_1":
-    case "wrong_otv_3_2":
-    case "wrong_otv_3_4":
-      seeHideElement("#question3");
-      break;
-
-    case "right_otv_4_2": // Выбор ответа на Вопрос 4
-      summ++;
-      seeHideElement("#question4");
-      break;
-    case "wrong_otv_4_1":
-    case "wrong_otv_4_3":
-    case "wrong_otv_4_4":
-      seeHideElement("#question4");
-      break;
-
-    case "right_otv_5_2": // Выбор ответа на Вопрос 5
-      summ++;
-      seeHideElement("#question5");
-      break;
-    case "wrong_otv_5_1":
-    case "wrong_otv_5_3":
-    case "wrong_otv_5_4":
-      seeHideElement("#question5");
-      break;
-
-    default:
-      break;
-  }
-}
-
-// function fastFinishTest() {
-
-//   document.querySelector("#finishTest").onclick = function() {
-//     return;
-//   };
-//   return true;
-// }
-
-// function fastFinishTest() {
-//   var button = questions.querySelector("#finishTest");
-//   button.addEventListener("click", function() {
-//     console.log("xjxf");
-//     return;
-//   });
-//   return true;
-// }
-
-function fastFinishTest() {
-  document.querySelector("#finishTest").onclick = function() {
-    exitTest = true;
-  };
 }
