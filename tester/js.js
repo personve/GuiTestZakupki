@@ -10,6 +10,7 @@ const state = {
 var summ = 0;
 var counter = 0; // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
 var exitTest;
+var place;
 
 // Прятать и показывать элементы
 
@@ -28,8 +29,18 @@ function seeHideElement(...theArgs) {
 /* Валидация для начала теста */
 // import { fio_list } from "./../examenator/list.js";
 
+validation();
+
+function validation() {
+  var btn = document.querySelector('input[type="submit"]');
+  btn.addEventListener("click", function(e) {
+    checkData(e);
+  });
+}
+
 function checkData(event) {
   event.preventDefault();
+
   let form = document.forms.form2;
 
   // let fioV = form.name.value;
@@ -67,6 +78,7 @@ function checkData(event) {
       passTestTime();
       getIdOfClickButton();
       fastFinishTest();
+      focusOut();
       break;
   }
 }
@@ -111,7 +123,7 @@ function passTestTime() {
   let id = setInterval(progressStatus, lostSec);
 
   function progressStatus() {
-    if (timeOfTest == 0 || counter == 5 || exitTest) {
+    if (timeOfTest == 0 || counter == 5 || exitTest || place) {
       seeHideElement(
         "#finishTest",
         "#progressBar",
@@ -155,6 +167,14 @@ function getIdOfClickButton() {
       clickButton(e);
     });
   }
+}
+
+//  Потеря фокуса
+
+function focusOut() {
+  window.onblur = function() {
+    place = true;
+  };
 }
 
 /* Действие после нажатия на кнопку с ответом */
