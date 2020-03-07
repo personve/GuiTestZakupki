@@ -1,25 +1,22 @@
-function true_value() {
-  return true;
-}
+// function true_value() {
+//   let value = true;
+//   return console.log(value);
+// }
 
-true_value();
+// true_value();
 
 function fio_list() {
-  
+    let tester = {};
+  let listTr = document.querySelectorAll("tr:nth-child(n+2)");
 
-  //   let tabL = tabV;
-
-  var list = document.querySelectorAll("td:nth-child(1)");
-
-  for (var i = 0; i < list.length; ++i) {
-    import { fioV } from "./../tester/js.js";
-    if (list[i] == fioV) {
-      export { true_value };
-    }
-    // f1 = list[i].getElementsByTagName("td")[0];
+  for (let i = 0; i < listTr.length; ++i) {
+    let listTd = listTr[i].querySelector("td:nth-child(1)");
+    tester["fio" + [i]] = listTd;
+    console.log(tester);
   }
-  //   return 18;
+  return tester;
 }
+// export { tester };
 
 fio_list();
 

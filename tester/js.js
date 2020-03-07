@@ -1,8 +1,8 @@
 // Константы
 
 const state = {
-  timeOfTest: Math.round((10 * 1000) / 100),
-  pass: "123" // Время теста в миллисекундах
+  timeOfTest: 2, // Время теста в минутах
+  pass: "123" // пароль для начала теста
 };
 
 // Переменная результата теста
@@ -25,30 +25,23 @@ function seeHideElement(...theArgs) {
   }
 }
 
-var button = questions.querySelectorAll("button");
-for (let i = 0; i < button.length; i++) {
-  button[i].addEventListener("click", function(e) {
-    clickButton(e);
-  });
-}
-
 /* Валидация для начала теста */
+// import { fio_list } from "./../examenator/list.js";
 
 function checkData(event) {
   event.preventDefault();
   let form = document.forms.form2;
-  let fioV = form.name.value;
-  // let tabV = form.tab_no.value;
-  // let dateV = form.name.value;
-  export { fioV };
 
-  import { true_value } from "./../examenator/list.js";
+  // let fioV = form.name.value;
+
+  // export { fioV };
+
   // let fio = fio_list();
   // let tab = tab_list();
 
   switch (true) {
-    case true_value:
-      alert("Верно");
+    case form.name.value == null:
+      alert("Неверное имя");
       break;
 
     case form.tab_no.value == null:
@@ -69,7 +62,9 @@ function checkData(event) {
         "#questions",
         "#finishTest"
       );
-      passTest();
+
+      passTestBar();
+      passTestTime();
       getIdOfClickButton();
       fastFinishTest();
       break;
@@ -85,15 +80,38 @@ function getFioTab() {
   tab.innerHTML = val2;
 }
 
-//  Прогресс Бар, ПО ОКОНЧАНИЮ которого ЛИБО по нажатию кнопки завершение теста,
-//  ЛИБО после нажатия 5 кнопок с ответами по 5 вопросам ПРОИСХОДИТ подсчет балла теста
+//  Прогресс Бар - заполнение зеленой полоски. Заполнение и окончание
+//  происходит одновременно с Таймером теста
 
-function passTest() {
+function passTestBar() {
   let width = 100;
   let elem = document.querySelector("#progress_line");
-  let id = setInterval(progressStatus, state.timeOfTest);
+  let mlSecOfTest = state.timeOfTest * 60 * 1000;
+  let lostSec = mlSecOfTest / 100;
+
+  let id = setInterval(progressTime, lostSec);
+  function progressTime() {
+    if (mlSecOfTest == 0) {
+      clearInterval(id);
+    } else {
+      width--;
+      elem.style.width = width + "%";
+    }
+  }
+}
+
+//  Таймер теста, ПО ОКОНЧАНИЮ которого ЛИБО по нажатию кнопки завершение
+//  теста, ЛИБО после нажатия 5 кнопок с ответами по 5 вопросам
+//  ПРОИСХОДИТ подсчет балла теста
+
+function passTestTime() {
+  let timeOfTest = state.timeOfTest * 60 * 1000;
+  let lostSec = 1000;
+
+  let id = setInterval(progressStatus, lostSec);
+
   function progressStatus() {
-    if (width == 0 || counter == 5 || exitTest) {
+    if (timeOfTest == 0 || counter == 5 || exitTest) {
       seeHideElement(
         "#finishTest",
         "#progressBar",
@@ -103,12 +121,10 @@ function passTest() {
         "#result",
         ".goToMainMenu"
       );
-
       clearInterval(id);
       counterButtons(); //Подсчет результатов теста
     } else {
-      width--;
-      elem.style.width = width + "%";
+      timeOfTest -= lostSec;
     }
   }
 }
@@ -146,65 +162,56 @@ function getIdOfClickButton() {
 // вопросе = нарушение логики кода!
 
 function clickButton(event) {
+  counter++;
   switch (event.target.getAttribute("id")) {
     case "right_otv_1_1": // Выбор ответа на Вопрос 1
-      counter++;
       summ++;
-      hideElement("#question1");
+      seeHideElement("#question1");
       break;
     case "wrong_otv_1_2":
     case "wrong_otv_1_3":
     case "wrong_otv_1_4":
-      counter++;
-      hideElement("#question1");
+      seeHideElement("#question1");
       break;
 
     case "right_otv_2_3": // Выбор ответа на Вопрос 2
-      counter++;
       summ++;
-      hideElement("#question2");
+      seeHideElement("#question2");
       break;
     case "wrong_otv_2_1":
     case "wrong_otv_2_2":
     case "wrong_otv_2_4":
-      counter++;
-      hideElement("#question2");
+      seeHideElement("#question2");
       break;
 
     case "right_otv_3_3": // Выбор ответа на Вопрос 3
-      counter++;
       summ++;
-      hideElement("#question3");
+      seeHideElement("#question3");
       break;
     case "wrong_otv_3_1":
     case "wrong_otv_3_2":
     case "wrong_otv_3_4":
-      counter++;
-      hideElement("#question3");
+      seeHideElement("#question3");
       break;
 
     case "right_otv_4_2": // Выбор ответа на Вопрос 4
-      counter++;
       summ++;
-      hideElement("#question4");
+      seeHideElement("#question4");
       break;
     case "wrong_otv_4_1":
     case "wrong_otv_4_3":
     case "wrong_otv_4_4":
-      counter++;
-      hideElement("#question4");
+      seeHideElement("#question4");
       break;
 
     case "right_otv_5_2": // Выбор ответа на Вопрос 5
-      counter++;
       summ++;
-      hideElement("#question5");
+      seeHideElement("#question5");
       break;
     case "wrong_otv_5_1":
     case "wrong_otv_5_3":
     case "wrong_otv_5_4":
-      counter++;
-      hideElement("#question5");
+      seeHideElement("#question5");
       break;
 
     default:

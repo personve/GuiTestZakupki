@@ -1,8 +1,4 @@
 .head {
-  /* display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 500px; */
   text-align: center;
   font: bold 25px arial;
   margin-bottom: 50px;
@@ -12,26 +8,52 @@
   height: 70px;
   width: 400px;
   font-size: 20px;
+  font-style: italic;
+  border-width: 3px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: arial;
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: #569cec; /* фон кнопки */
+  padding: 7px 20px; /* отступ от текста */
+  outline: none; /* убирать контур */
 }
 
-.choose,
 .goToMainMenu {
   font-style: italic;
   border-width: 3px;
-}
-
-.goToMainMenu {
   display: block;
   font-size: 15px;
   height: 40px;
   width: 200px;
+  font-family: arial;
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: #569cec; /* фон кнопки */
+  padding: 7px 20px; /* отступ от текста */
+  outline: none; /* убирать контур */
 }
 
 .pass {
   display: block;
 }
 
-.pass input[type="password"],
+.pass input[type="password"] {
+  text-align: center;
+  font-size: 14px;
+  width: 200pt;
+  height: 20pt;
+  border-width: 2pt;
+  background: radial-gradient(#ffffff, #e0e0e0);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .pass input[type="text"] {
   text-align: center;
   font-size: 14px;
@@ -39,20 +61,15 @@
   height: 20pt;
   border-width: 2pt;
   background: radial-gradient(#ffffff, #e0e0e0);
-}
-
-.choose,
-.pass input[type="password"],
-.pass input[type="text"],
-.pass input[type="submit"] {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.goToMainMenu,
-.choose,
 .pass input[type="submit"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   font-family: arial;
   color: #fff; /* цвет текста */
   text-decoration: none; /* убирать подчёркивание у ссылок */
@@ -65,14 +82,16 @@
 .goToMainMenu:hover,
 .choose:hover,
 .pass input[type="submit"]:hover,
-.answer:hover {
+.answer:hover,
+#finishTest:hover {
   background: #82b4ec;
 } /* при наведении курсора мышки */
 
 .goToMainMenu:active,
 .pass input[type="submit"]:active,
 .choose:active,
-.answer:active {
+.answer:active,
+#finishTest:active {
   background: #046feb;
 } /* при нажатии */
 
@@ -141,9 +160,8 @@ td:first-child {
   font-size: 18px;
   font-family: arial;
   font-style: italic;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-right: 10%;
-  margin-top: 60px;
   text-align: center;
   border-style: solid;
   border-width: 3px;
@@ -151,11 +169,21 @@ td:first-child {
   border-radius: 40px;
 }
 
+#questions div:nth-child(n + 2) {
+  margin-top: 60px;
+}
+
+#questions {
+  display: none;
+  margin-bottom: 50px;
+  margin-top: 80px;
+}
+
 .answer {
   display: block;
   min-width: 500px;
   padding: 10px;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-right: 10%;
   margin-top: 5px;
   font-size: 15px;
@@ -169,14 +197,32 @@ td:first-child {
 }
 
 #finishTest {
+  display: none;
   margin-top: 30px;
   margin-bottom: 30px;
+  position: fixed;
+  font-style: italic;
+  border-width: 3px;
+  font-size: 15px;
+  height: 60px;
+  width: 120px;
+  font-family: arial;
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: red; /* фон кнопки */
+  padding: 7px 10px; /*отступ от текста*/
+  outline: none; /* убирать контур */
+}
+
+.wrapper2 {
+  top: 0;
+  left: 5ps;
+  position: fixed;
 }
 
 #progressBar,
 #hello,
-#questions,
-#finishTest,
 #result {
   display: none;
 }
@@ -190,6 +236,7 @@ td:first-child {
   position: fixed;
   top: 0;
 }
+
 #space p {
   position: absolute;
   bottom: 0;
