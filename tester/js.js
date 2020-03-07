@@ -39,6 +39,7 @@ function seeHideElement(...theArgs) {
 
 validation();
 
+console.log();
 function validation() {
   var btn = document.querySelector('input[type="submit"]');
   btn.addEventListener("click", function(e) {
@@ -49,29 +50,30 @@ function validation() {
 function checkData(event) {
   event.preventDefault();
 
-  let form = document.forms.form2;
+  let fio = document.forms.form2.name.value;
+  let tab_no = document.forms.form2.tab_no.value;
+  let pass = document.forms.form2.pass.value;
+  console.log(fio, tab_no, pass);
 
-  // let fioV = form.name.value;
-
-  // export { fioV };
-
-  // let fio = fio_list();
-  // let tab = tab_list();
+  export { fio, tab_no, pass };
+  import { summ } from "./../examenator/list.js";
 
   switch (true) {
-    case form.name.value == null:
-      alert("Неверное имя");
-      break;
+    case summ == 3:
+      //       alert("Верно!");
+      //       break;
+      //   }
+      // }
 
-    case form.tab_no.value == null:
-      alert("Неверный табельный");
-      break;
+      //   case tab_no == null:
+      //     alert("Неверный табельный");
+      //     break;
 
-    case form.pass.value != "123":
-      alert("Неверный пароль-подтверждение");
-      break;
+      //   case pass != "123":
+      //     alert("Неверный пароль-подтверждение");
+      //     break;
 
-    default:
+      //   default:
       getFioTab();
       seeHideElement(
         "#pass",
