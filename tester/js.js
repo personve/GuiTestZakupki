@@ -47,8 +47,8 @@ function validation() {
   });
 }
 
-import { e } from "./../examenator/list.js";
-console.log(e);
+// import { str } from "../examenator/list.js";
+// console.log(str);
 
 function checkData(event) {
   event.preventDefault();
