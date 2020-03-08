@@ -8,55 +8,37 @@
   height: 70px;
   width: 400px;
   font-size: 20px;
-  font-style: italic;
-  border-width: 3px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  font-family: arial;
-  color: #fff; /* цвет текста */
-  text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  background: #569cec; /* фон кнопки */
-  padding: 7px 20px; /* отступ от текста */
-  outline: none; /* убирать контур */
+
+  /* убирать контур */
 }
 
 .goToMainMenu {
-  font-style: italic;
-  border-width: 3px;
-  display: block;
   font-size: 15px;
   height: 40px;
   width: 200px;
-  font-family: arial;
-  color: #fff; /* цвет текста */
-  text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  background: #569cec; /* фон кнопки */
-  padding: 7px 20px; /* отступ от текста */
-  outline: none; /* убирать контур */
 }
 
-.pass {
+.choose,
+.goToMainMenu,
+#listToday,
+input[type="submit"] {
   display: block;
+  border-width: 3px;
+  font: italic arial;
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: #569cec;
+  padding: 7px 20px;
+  outline: none;
 }
 
-input[type="password"] {
-  text-align: center;
-  font-size: 14px;
-  width: 200pt;
-  height: 20pt;
-  border-width: 2pt;
-  background: radial-gradient(#ffffff, #e0e0e0);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+input[type="password"],
 input[type="text"] {
+  font: 14px arial;
   text-align: center;
-  font-size: 14px;
   width: 200pt;
   height: 20pt;
   border-width: 2pt;
@@ -67,16 +49,8 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  font-family: arial;
-  color: #fff; /* цвет текста */
-  text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  background: #569cec; /* фон кнопки */
-  padding: 7px 20px; /* отступ от текста */
-  outline: none; /* убирать контур */
 }
 
 .goToMainMenu:hover,
@@ -98,8 +72,7 @@ input[type="submit"]:hover,
 } /* при нажатии */
 
 table {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font: 14px arial;
   background: white;
   width: 600px;
   margin-top: 5px;
@@ -136,30 +109,17 @@ td:first-child {
 #todayDate {
   position: absolute;
   right: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  margin-left: 10%;
+  font: 16px arial;
 }
 
 #listToday {
-  font-style: italic;
-  border-width: 3px;
-  display: block;
   font-size: 16px;
   height: 50px;
   width: 300px;
-  font-family: arial;
-  color: #fff; /* цвет текста */
-  text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  background: #569cec; /* фон кнопки */
-  padding-left: 20px;
-  padding-right: 20px;
-  outline: none; /* убирать контур */
   margin-left: auto;
   margin-right: auto;
 }
-
-/* progress bar */
 
 .wrapper {
   top: 0;
@@ -189,15 +149,11 @@ td:first-child {
   display: block;
   padding-left: 20px;
   padding-right: 20px;
-  font-size: 18px;
-  font-family: arial;
-  font-style: italic;
+  font: italic 18px arial;
   margin-left: 15%;
   margin-right: 10%;
   text-align: center;
-  border-style: solid;
-  border-width: 3px;
-  border-color: gray;
+  border: 3px solid gray;
   border-radius: 40px;
 }
 
@@ -214,37 +170,30 @@ td:first-child {
 .answer {
   display: block;
   min-width: 500px;
-  padding: 10px;
   margin-left: 15%;
   margin-right: 10%;
   margin-top: 5px;
-  font-size: 15px;
-  font-family: arial;
-  font-style: italic;
   text-align: left;
-  border-width: 5px;
-  text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  outline: none; /* убирать контур */
 }
 
 #finishTest {
   display: none;
   margin-top: 30px;
-  margin-bottom: 30px;
   position: fixed;
-  font-style: italic;
-  border-width: 3px;
-  font-size: 15px;
   height: 60px;
   width: 120px;
-  font-family: arial;
-  color: #fff; /* цвет текста */
+  color: #fff;
+  background: red;
+}
+
+.answer,
+#finishTest {
+  font: italic 15px arial;
   text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  background: red; /* фон кнопки */
+  user-select: none;
   padding: 7px 10px; /*отступ от текста*/
-  outline: none; /* убирать контур */
+  outline: none;
+  border-width: 3px;
 }
 
 .wrapper2 {

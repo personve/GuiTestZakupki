@@ -52,10 +52,10 @@ function checkData(event) {
     pass = document.forms.form2.pass.value;
   switch (true) {
     case fio == null:
-      alert("Неверное имя");
+      alert("Введите фамилию и инициалы");
       break;
     case tab_no == null:
-      alert("Неверный табельный");
+      alert("Введите табельный номмер");
       break;
     case pass != state.pass:
       alert("Неверный пароль-подтверждение");
@@ -140,7 +140,7 @@ function passTestTime() {
   }
 }
 
-//  Потеря фокуса
+//  Потеря фокуса на тесте во время его прохождения
 
 function focusOut() {
   window.onblur = function() {

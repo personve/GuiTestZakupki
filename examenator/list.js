@@ -33,12 +33,15 @@ function clickButton(event) {
 
   for (let i = 1; i < listTr.length; i++) {
     td1 = listTr[i].querySelectorAll("td")[3];
-        if (td1.innerHTML != dateTod) {
+    if (td1.innerHTML != dateTod) {
       listTr[i].style.display = "none";
     }
   }
 
-  seeHideElement("#todayDate", "#listToday", ".goToMainMenu");
+  seeHideElement("#listToday", ".goToMainMenu");
+
+  document.querySelector("#todayDate").style.position = "inherit";
+  
   window.print();
   location.reload();
 }
