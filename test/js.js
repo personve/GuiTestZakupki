@@ -13,19 +13,18 @@ let rightAnswersLaw = [
   "right_otv_5_2"
 ];
 
-var testerAnswersLaw = {};
-// Переменная результата теста
-
-var counter = 0; // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
-var exitTest;
-var place;
+// Переменные
+var testerAnswersLaw = {},
+  counter = 0, // Счетчик количества нажатых кнопок ответов (нажать 5 для завершения)
+  exitTest,
+  place;
 
 // Прятать и показывать элементы
 
 function seeHideElement(...theArgs) {
   for (let i = 0; i < theArgs.length; i++) {
-    let elem = document.querySelector(theArgs[i]);
-    let stl = getComputedStyle(elem).display;
+    let elem = document.querySelector(theArgs[i]),
+      stl = getComputedStyle(elem).display;
     if (stl == "none" || stl == null) {
       elem.style.display = "block";
     } else if (stl == "block") {
@@ -39,7 +38,6 @@ function seeHideElement(...theArgs) {
 
 validation();
 
-console.log();
 function validation() {
   var btn = document.querySelector('input[type="submit"]');
   btn.addEventListener("click", function(e) {
@@ -49,24 +47,19 @@ function validation() {
 
 function checkData(event) {
   event.preventDefault();
-
-  let fio = document.forms.form2.name.value;
-  let tab_no = document.forms.form2.tab_no.value;
-  let pass = document.forms.form2.pass.value;
-
+  let fio = document.forms.form2.name.value,
+    tab_no = document.forms.form2.tab_no.value,
+    pass = document.forms.form2.pass.value;
   switch (true) {
     case fio == null:
       alert("Неверное имя");
       break;
-
     case tab_no == null:
       alert("Неверный табельный");
       break;
-
     case pass != state.pass:
       alert("Неверный пароль-подтверждение");
       break;
-
     default:
       getFioTab();
       seeHideElement(
@@ -77,7 +70,6 @@ function checkData(event) {
         "#questions",
         "#finishTest"
       );
-
       passTestBar();
       passTestTime();
       getIdOfClickButton();
@@ -100,12 +92,15 @@ function getFioTab() {
 //  происходит одновременно с Таймером теста
 
 function passTestBar() {
-  let width = 100;
-  let elem = document.querySelector("#progress_line");
-  let mlSecOfTest = state.timeOfTest * 60 * 1000;
-  let lostSec = mlSecOfTest / 100;
-
-  let id = setInterval(progressTime, lostSec);
+  let width = 100,
+    elem,
+    mlSecOfTest,
+    lostSec,
+    id;
+  elem = document.querySelector("#progress_line");
+  mlSecOfTest = state.timeOfTest * 60 * 1000;
+  lostSec = mlSecOfTest / 100;
+  id = setInterval(progressTime, lostSec);
   function progressTime() {
     if (mlSecOfTest == 0) {
       clearInterval(id);
@@ -121,10 +116,10 @@ function passTestBar() {
 //  ПРОИСХОДИТ подсчет балла теста
 
 function passTestTime() {
-  let timeOfTest = state.timeOfTest * 60 * 1000;
-  let lostSec = 1000;
-
-  let id = setInterval(progressStatus, lostSec);
+  let timeOfTest, lostSec, id;
+  timeOfTest = state.timeOfTest * 60 * 1000;
+  lostSec = 1000;
+  id = setInterval(progressStatus, lostSec);
 
   function progressStatus() {
     if (timeOfTest == 0 || counter == 5 || exitTest || place) {

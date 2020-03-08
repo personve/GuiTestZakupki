@@ -1,68 +1,19 @@
-// fio_list();
-
-// function fio_list() {
-//   var massTestersTab = [1];
-//   let trList = document.querySelectorAll("tr:nth-child(n+2)");
-//   console.log(trList);
-//   for (let i = 0; i < trList.length; ++i) {
-//     let tdNum = trList[i].querySelectorAll("td:nth-child(2)");
-//     for (let j = 0; j < tdNum.length; j++) {
-//       let tab = tdNum[j].innerHTML;
-//       console.log("11111 " + tab);
-//       let newTab;
-//       console.log("22222 " + newTab);
-//       if (999 < tab && tab < 10000) {
-//         newTab = "0" + tab;
-//       } else if (99 < tab && tab < 1000) {
-//         newTab = "00" + tab;
-//       } else if (9 < tab && tab < 100) {
-//         newTab = "000" + tab;
-//       }
-//       console.log("33333 " + newTab);
-
-//        massTestersTab.push(newTab);
-//       console.log("44444 " + massTestersTab);
-//     }
-
-//   }
-
-//   return massTestersTab;
-// }
-
 //  Вывод текущей даты
 var dateTod;
+
 function dateToday() {
-  let d = new Date();
-  let date = d.getDate();
-  let month = d.getMonth() + 1;
-  let year = d.getFullYear();
+  let d, date, month, year;
+  d = new Date();
+  date = d.getDate();
+  month = d.getMonth() + 1;
+  year = d.getFullYear();
   dateTod = ("0" + date).slice(-2) + "." + ("0" + month).slice(-2) + "." + year;
   todayDate.innerHTML = "<p> Сегодня <b>" + dateTod + " г.</b> </p>";
 }
 
 dateToday();
 
-// function myFunction() {
-//   var input, filter, tr, td, i;
-//   input = document.querySelector("table");
-// console.log(input);
-//   filter = input.value.toLowerCase();
-//   console.log(filter);
-
-//   tr = table.querySelectorAll("tr");
-//   for (i = 0; i < tr.length; i++) {
-//     td = tr[i].getElementsByTagName("td")[0];
-//     if (td) {
-//       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
-
-// myFunction();
+//  Печать списка сдающих сегодня
 
 getIdOfClickButton();
 
@@ -75,26 +26,31 @@ function getIdOfClickButton() {
 
 function clickButton(event) {
   event.preventDefault();
-
-  let newTable = [],
-  table = document.querySelector("table")
-  listTh = table.querySelectorAll("th"),
+  let table, listTr, listTh, td1, td2, th1;
+  table = document.querySelector("table");
   listTr = table.querySelectorAll("tr");
-  console.log(listTh);
-  newTable.push(listTh);
- 
-  for (let i = 1; i < listTr.length; i++) {
+  listTh = table.querySelectorAll("th");
 
-    console.log(listTr[i]);
-    console.log(listTr[i].querySelector("td")[3]);
-    if (listTr[i].querySelector("td")[3].innerHTML == dateTod) {
-      newTable.push(listTr[i]);
+  for (let i = 1; i < listTr.length; i++) {
+    td1 = listTr[i].querySelectorAll("td")[3];
+        if (td1.innerHTML != dateTod) {
+      listTr[i].style.display = "none";
     }
   }
-  console.log(listTr);
-  // let sortedRows = Array.from(table.rows).slice(1).sort((rowA, rowB) => rowA.cells[0].innerHTML > rowB.cells[0].innerHTML ? 1 : -1);
 
-  // table.tBodies[0].append(...sortedRows);
+  seeHideElement("#todayDate", "#listToday", ".goToMainMenu");
+  window.print();
+  location.reload();
+}
+
+// Спрятать элементы
+
+function seeHideElement(...theArgs) {
+  for (let i = 0; i < theArgs.length; i++) {
+    let elem = document.querySelector(theArgs[i]);
+
+    elem.style.display = "none";
+  }
 }
 
 //  Сортировка таблицы
@@ -109,17 +65,13 @@ function sortTable(n) {
     shouldSwitch,
     dir,
     switchcount = 0;
-  console.log(switchcount);
 
   table = document.querySelector("table");
   switching = true;
   dir = "asc"; //  Задаем начальную сортировку по возрастанию
-  console.log(dir);
-  console.log(77777777777777777);
 
   //  Цикл, где будет меняться значение строк, пока это необходимо
   while (switching) {
-    console.log(77777777777777777);
     //  Начинаем с отсутствия необходимости в сортировке.
     //  Это значение попадет в цикл while, когда мы дойдем до последних двух строк
     //  и выполним (либо нет) для них сортировку
@@ -128,7 +80,6 @@ function sortTable(n) {
 
     //  Перебираем все строки таблицы кроме заголовка (поэтому rows.length - 1)
     for (i = 1; i < rows.length - 1; i++) {
-      console.log(77777777777777777);
       shouldSwitch = false; //  Начинаем с отсутствия сортировки (задается для очистки значения)
 
       //  Берем две строки
@@ -145,7 +96,6 @@ function sortTable(n) {
         if (
           firstTr.innerHTML.toLowerCase() > secondTr.innerHTML.toLowerCase()
         ) {
-          console.log("2222222222" + dir);
           //  Если первое значение (Я) больше второго (А), то поменять строки
           //  и завершить for для данной строки (rows[i]) - перейти к следующей
           shouldSwitch = true;
@@ -157,8 +107,6 @@ function sortTable(n) {
         if (
           firstTr.innerHTML.toLowerCase() < secondTr.innerHTML.toLowerCase()
         ) {
-          console.log("55555555555" + dir);
-
           //  Если первое значение (Я) меньше второго (А), то поменять строки
           //  и завершить for для данной строки (rows[i]) - перейти к следующей
           shouldSwitch = true;
@@ -166,29 +114,21 @@ function sortTable(n) {
         }
       }
     }
-    console.log(77777777777777777);
     if (shouldSwitch) {
       //  Меняем местами строки (второй ставим перед первым) и отмечаем, что сменили, чтобы продолжался цикл проверки строк на необходимость смены
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
       //  Каждая смена строк подсчитывается
       switchcount++;
-      console.log(switchcount);
-      console.log('1'+dir);
     } else {
-      console.log(77777444444444444777);
-      //  Если сортировка (смена мест строк) не выполнялась и задана сортировка asc
-      //  (по возрастанию), то сменить на desc (по убыванию) и запустить цикл while - 
-      //  это выполняется в начале при нажатии на кнопку
+      //  Проверяется имеющийся список. Если уже сортировка по asc была (задана asc сейчас),
+      //  то менять местами нечего, НО мы нажали на сортировку еще раз => мы хотим
+      //  запустить сортировку по desc (по убыванию),а так как мы еще ниче не меняли, то
+      //   switchcount == 0.  Этот if выполняется в начале при нажатии на кнопку
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
-        console.log('2'+dir);
-        console.log(7777777777000000000000000000007777777);
       }
-      console.log('3'+dir);
     }
-    console.log('4'+dir);
   }
-  console.log('5'+dir);
 }

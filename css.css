@@ -1,7 +1,7 @@
 .head {
   text-align: center;
   font: bold 25px arial;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .choose {
@@ -83,7 +83,8 @@ input[type="submit"] {
 .choose:hover,
 input[type="submit"]:hover,
 .answer:hover,
-#finishTest:hover {
+#finishTest:hover,
+#listToday:hover {
   background: #82b4ec;
 } /* при наведении курсора мышки */
 
@@ -91,7 +92,8 @@ input[type="submit"]:hover,
 .pass input[type="submit"]:active,
 .choose:active,
 .answer:active,
-#finishTest:active {
+#finishTest:active,
+#listToday:active {
   background: #046feb;
 } /* при нажатии */
 
@@ -136,6 +138,25 @@ td:first-child {
   right: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+}
+
+#listToday {
+  font-style: italic;
+  border-width: 3px;
+  display: block;
+  font-size: 16px;
+  height: 50px;
+  width: 300px;
+  font-family: arial;
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: #569cec; /* фон кнопки */
+  padding-left: 20px;
+  padding-right: 20px;
+  outline: none; /* убирать контур */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* progress bar */
