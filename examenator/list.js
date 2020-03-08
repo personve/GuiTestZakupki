@@ -1,40 +1,37 @@
 fio_list();
 
 function fio_list() {
-  let massTesters = [];
-  let nameKeys = document.querySelectorAll("tr>th");
-  let listTr = document.querySelectorAll("tr:nth-child(n+2)");
-  for (let i = 0; i < listTr.length; ++i) {
-    let tdNum = listTr[i].querySelectorAll("td");
-    let tester = {};
-    for (let j = 0; j < tdNum.length; ++j) {
-      let nameKey = nameKeys[j].id;
-      tester[nameKey] = tdNum[j].textContent;
+  var massTestersTab = [];
+  let trList = document.querySelectorAll("tr:nth-child(n+2)");
+  for (let i = 0; i < trList.length; ++i) {
+    let tdNum = trList[i].querySelectorAll("td:nth-child(2)");
+    for (let j = 0; j < tdNum.length; j++) {
+      let tab = tdNum[j].innerHTML;
+      var newTab;
+
+      newTab = tab + ".5";
+
+      console.log(newTab);
+
+      massTestersTab.push(newTab);
     }
-    massTesters.push(tester);
   }
-  return massTesters;
+
+  return massTestersTab;
 }
 
+// Math.pow(10, i)
 
+let str = fio_list().join("");
+console.log(str);
 
-import { fio, tab_no, pass } from "./../tester/js.js";
+// for (var i = 0; i<fio_list().length; i++) {
+//   // window['perem'+i] = fio_list()[i] ;
+//   console.log(window['perem'+i] = fio_list()[i]);
+//   }
 
-validation();
-
-function validation() {
-  var summ = 0;
-  if (fio == "Иванов И.И.") {
-    summ++;
-  }
-  if (tab_no == 1567) {
-    summ++;
-  }
-  if (pass == 123) {
-    summ++;
-  }
-}
-
-export { summ };
-
-console.log(fio, tab_no, pass);
+// for (let i = 0; i < fio_list().length; i++) {
+//   var e = fio_list()[i];
+//   console.log(e);
+// }
+// export { e };

@@ -47,50 +47,37 @@ function validation() {
   });
 }
 
+import { e } from "./../examenator/list.js";
+console.log(e);
+
 function checkData(event) {
   event.preventDefault();
 
-  let fio = document.forms.form2.name.value;
-  let tab_no = document.forms.form2.tab_no.value;
-  let pass = document.forms.form2.pass.value;
-  console.log(fio, tab_no, pass);
+  // let fio = document.forms.form2.name.value;
+  // let tab_no = document.forms.form2.tab_no.value;
+  // let pass = document.forms.form2.pass.value;
 
-  export { fio, tab_no, pass };
-  import { summ } from "./../examenator/list.js";
+  
+  // switch (true) {
+  //   case summ == 3:
 
-  switch (true) {
-    case summ == 3:
-      //       alert("Верно!");
-      //       break;
-      //   }
-      // }
+  //     getFioTab();
+  //     seeHideElement(
+  //       "#pass",
+  //       ".goToMainMenu",
+  //       "#space",
+  //       "#progressBar",
+  //       "#questions",
+  //       "#finishTest"
+  //     );
 
-      //   case tab_no == null:
-      //     alert("Неверный табельный");
-      //     break;
-
-      //   case pass != "123":
-      //     alert("Неверный пароль-подтверждение");
-      //     break;
-
-      //   default:
-      getFioTab();
-      seeHideElement(
-        "#pass",
-        ".goToMainMenu",
-        "#space",
-        "#progressBar",
-        "#questions",
-        "#finishTest"
-      );
-
-      passTestBar();
-      passTestTime();
-      getIdOfClickButton();
-      fastFinishTest();
-      focusOut();
-      break;
-  }
+  //     passTestBar();
+  //     passTestTime();
+  //     getIdOfClickButton();
+  //     fastFinishTest();
+  //     focusOut();
+  //     break;
+  // }
 }
 
 /* Заполнение полей тестируемого в конце теста (фио, табельный, результат теста) */
