@@ -42,7 +42,7 @@
   display: block;
 }
 
-.pass input[type="password"] {
+input[type="password"] {
   text-align: center;
   font-size: 14px;
   width: 200pt;
@@ -54,7 +54,7 @@
   margin-right: auto;
 }
 
-.pass input[type="text"] {
+input[type="text"] {
   text-align: center;
   font-size: 14px;
   width: 200pt;
@@ -66,7 +66,7 @@
   margin-right: auto;
 }
 
-.pass input[type="submit"] {
+input[type="submit"] {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -81,7 +81,7 @@
 
 .goToMainMenu:hover,
 .choose:hover,
-.pass input[type="submit"]:hover,
+input[type="submit"]:hover,
 .answer:hover,
 #finishTest:hover {
   background: #82b4ec;
@@ -100,6 +100,8 @@ table {
   font-size: 14px;
   background: white;
   width: 600px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
@@ -111,6 +113,8 @@ th {
   border-bottom: 2px solid #6678b1;
   padding: 10px 8px;
   text-align: center;
+  vertical-align: bottom;
+  cursor: pointer;
 }
 
 td {
@@ -125,6 +129,13 @@ tr:hover td {
 
 td:first-child {
   text-align: left;
+}
+
+#todayDate {
+  position: absolute;
+  right: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
 
 /* progress bar */

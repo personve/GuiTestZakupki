@@ -12,20 +12,29 @@
   </head>
 
   <body>
+    <div id="todayDate"></div>
     <form action="../main.html">
       <button class="goToMainMenu">в главное меню</button>
     </form>
 
-    <p class="head">Список сотрудников</p>
+    <p class="head">Список сотрудников, допущенных к сдаче теста</p>
 
-    
+    <input
+      type="text"
+      onkeyup="myFunction()"
+      placeholder="Введите фамилию для поиска"
+    />
+
+    <form>
+      <button id="listToday">список на сегодня</button>
+    </form>
 
     <table id="list">
       <tr>
-        <th id="fio">Фамилия И.О.</th>
-        <th id="tab">Табельный номер</th>
-        <th id="tel">Телефон</th>
-        <th id="date">Дата сдачи теста</th>
+        <th id="fio" onclick="sortTable(0)">Фамилия И.О.</th>
+        <th id="tab" onclick="sortTable(1)">Табельный номер</th>
+        <th id="tel" onclick="sortTable(2)">Телефон</th>
+        <th id="date" onclick="sortTable(3)">Дата сдачи теста</th>
       </tr>
       <tr>
         <td>Вакарова А.С.</td>
