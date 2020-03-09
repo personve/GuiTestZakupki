@@ -26,14 +26,13 @@ function getIdOfClickButton() {
 
 function clickButton(event) {
   event.preventDefault();
-  let table, listTr, listTh, td1, td2, th1;
+  let table, listTr, td;
   table = document.querySelector("table");
   listTr = table.querySelectorAll("tr");
-  listTh = table.querySelectorAll("th");
 
   for (let i = 1; i < listTr.length; i++) {
-    td1 = listTr[i].querySelectorAll("td")[3];
-    if (td1.innerHTML != dateTod) {
+    td = listTr[i].querySelectorAll("td")[3];
+    if (td.innerHTML != dateTod) {
       listTr[i].style.display = "none";
     }
   }
@@ -41,7 +40,7 @@ function clickButton(event) {
   seeHideElement("#listToday", ".goToMainMenu");
 
   document.querySelector("#todayDate").style.position = "inherit";
-  
+
   window.print();
   location.reload();
 }
@@ -51,7 +50,6 @@ function clickButton(event) {
 function seeHideElement(...theArgs) {
   for (let i = 0; i < theArgs.length; i++) {
     let elem = document.querySelector(theArgs[i]);
-
     elem.style.display = "none";
   }
 }

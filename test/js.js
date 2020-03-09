@@ -25,10 +25,15 @@ function seeHideElement(...theArgs) {
   for (let i = 0; i < theArgs.length; i++) {
     let elem = document.querySelector(theArgs[i]),
       stl = getComputedStyle(elem).display;
-    if (stl == "none" || stl == null) {
-      elem.style.display = "block";
-    } else if (stl == "block") {
-      elem.style.display = "none";
+
+    switch (stl) {
+      case "none":
+      case null:
+        elem.style.display = "block";
+        break;
+      case "block":
+        elem.style.display = "none";
+        break;
     }
   }
 }
@@ -194,12 +199,15 @@ function counterButtons() {
 
   if (counter != 0 || counter == 5) {
     let ball = Math.round((summ * 10) / 5);
-    if (ball == 1) {
-      res.innerHTML = ball + " балл";
-    } else if (ball == 2 || ball == 3 || ball == 4) {
-      res.innerHTML = ball + " балла";
-    } else {
-      res.innerHTML = ball + " баллов";
+    switch (ball) {
+      case 1:
+        res.innerHTML = ball + " балл";
+      case 2:
+      case 3:
+      case 4:
+        res.innerHTML = ball + " балла";
+      default:
+        res.innerHTML = ball + " баллов";
     }
   } else {
     res.innerHTML = 0 + " баллов";
