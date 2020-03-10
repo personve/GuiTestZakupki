@@ -7,18 +7,22 @@
       name="description"
       content="Веб-приложение для тестирования в сфере закупок"
     />
-    <link rel="stylesheet" href="../css.css" />
-    <title>Результаты тестирования</title>
+    <link rel="stylesheet" href="../../css.css" />
+    <title>Список сотрудников</title>
   </head>
 
   <body>
     <div id="todayDate"></div>
 
-    <form action="../main.html">
+    <form action="../../main.html">
       <button class="goToMainMenu">в главное меню</button>
     </form>
 
-    <p class="head">Список работников, допущенных к сдаче теста</p>
+    <form action="../examenator_pass.html">
+      <button class="goBack">назад</button>
+    </form>
+
+    <p class="head">Список работников, допущенных к сдаче теста <b class="actions"></b></p>
 
     <form>
       <button id="listToday"><b>ПЕЧАТЬ</b><br>cписка сдающих сегодня</button>
@@ -105,6 +109,6 @@
       </tr>
     </table>
 
-    <script src="list.js"></script>
+    <script src="jsL.js"></script>
   </body>
 </html>

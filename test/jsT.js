@@ -39,7 +39,6 @@ function seeHideElement(...theArgs) {
 }
 
 /* Валидация для начала теста */
-// import { fio_list } from "./../examenator/list.js";
 
 validation();
 

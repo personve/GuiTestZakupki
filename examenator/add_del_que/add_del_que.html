@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Вакарова А.С." />
+    <meta
+      name="description"
+      content="Веб-приложение для тестирования в сфере закупок"
+    />
+    <link rel="stylesheet" href="../../css.css" />
+    <title>Редактирование вопросов теста</title>
+  </head>
+
+  <body>
+    <form action="../../main.html">
+      <button class="goToMainMenu">в главное меню</button>
+    </form>
+
+    <form action="../examenator_pass.html">
+      <button class="goBack">назад</button>
+    </form>
+
+    <p class="head">Список вопросов теста</p>
+
+    <table id="que">
+      <tr>
+        <th>Содержание вопроса</th>
+        <th>Изменить</th>
+        <th>Удалить</th>
+      </tr>
+      <tr>
+        <td>
+          Выберите документ(ы), которым(и) необходимо в первую очередь
+          руководствоваться при проведении процедур закупок
+        </td>
+        <td>
+          <form action="rename_que.html">
+            <button class="changeQue"></button>
+          </form>
+        </td>
+        <td><button class="deleteQue"></button></td>
+      </tr>
+      <tr>
+        <td>
+          Какой из указанных случаев не относится к случаям, когда заказчик
+          может провести закупку за счет собственных средств с применением
+          процедуры закупки из одного источника?
+        </td>
+        <td>
+          <form action="rename_que.html">
+            <button class="changeQue"></button>
+          </form>
+        </td>
+        <td><button class="deleteQue"></button></td>
+      </tr>
+      <tr>
+        <td>
+          Участника из какого реестра нельзя допускать к участию в процедуре
+          закупки за счет собственных средств?
+        </td>
+        <td>
+          <form action="rename_que.html">
+            <button class="changeQue"></button>
+          </form>
+        </td>
+        <td><button class="deleteQue"></button></td>
+      </tr>
+      <tr>
+        <td>
+          Можно ли допустить к участию в конкурентной процедуре закупки
+          участника, который не является производителем или официальным торговым
+          представителем?
+        </td>
+        <td>
+          <form action="rename_que.html">
+            <button class="changeQue"></button>
+          </form>
+        </td>
+        <td><button class="deleteQue"></button></td>
+      </tr>
+      <tr>
+        <td>
+          В какие сроки необходимо заключить договор по результатам закупки за
+          счет собственных средств, если стоимость закупки не превышает 3000 БВ
+          на день принятия решения о выборе победителя?
+        </td>
+        <td>
+          <form action="rename_que.html">
+            <button class="changeQue"></button>
+          </form>
+        </td>
+        <td><button class="deleteQue"></button></td>
+      </tr>
+    </table>
+
+    <form>
+      <button id="addQue" style="margin-bottom: 20px;">
+        Добавить новый вопрос
+      </button>
+    </form>
+  </body>
+</html>
