@@ -9,6 +9,19 @@
     />
     <link rel="stylesheet" href="../css.css" />
     <title>Вход</title>
+
+    <script>
+      const state = { pass: "123" };
+
+      function checkPassword(event) {
+        event.preventDefault();
+        if (document.forms.form.pass.value == state.pass) {
+          location.href = "admin.html";
+        } else {
+          alert("Неверный пароль");
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -33,18 +46,5 @@
 
       <input type="submit" value="Вход" onclick="checkPassword(event)" />
     </form>
-
-    <script>
-      const state = { pass: "123" };
-
-      function checkPassword(event) {
-        event.preventDefault();
-        if (document.forms.form.pass.value == state.pass) {
-          location.href = "admin.html";
-        } else {
-          alert("Неверный пароль");
-        }
-      }
-    </script>
   </body>
 </html>
