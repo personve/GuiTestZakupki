@@ -38,7 +38,7 @@ function clickButton(event) {
     }
   }
 
-  seeHideElement("#todayDate","#listToday", ".goToMainMenu", "#goBack");
+  seeHideElement("#todayDate","#listToday", ".goToMainMenu", ".goBack");
 
   document.querySelector(".actions").innerHTML = dateTod;
   

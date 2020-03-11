@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <form action="../main.html">
+    <form action="../index.html">
       <button class="goToMainMenu">в главное меню</button>
     </form>
 
@@ -45,13 +45,8 @@
           type="text"
           placeholder="Табельный номер"
           value="167"
-          required
+          
         />
-
-        <p style="margin-top: 10px; text-align: center;">
-          Пароль-подтверждение вводит экзаменатор<br />
-          (пароль: 123)
-        </p>
 
         <input
           name="field"
@@ -59,7 +54,7 @@
           type="password"
           placeholder="Пароль-подтверждение"
           value="123"
-          required
+          
         />
 
         <input
@@ -69,6 +64,8 @@
           value="Вход"
         />
       </form>
+
+      <p class="comment">Пароль-подтверждение вводит экзаменатор<br /></p>
     </div>
 
     <p id="hello" class="head">
@@ -102,9 +99,7 @@
           "Об утверждении Положения о приемке товара по количеству и качеству"
         </button>
 
-        <button class="answer">
-          <b>4. </b>Все варианты
-        </button>
+        <button class="answer"><b>4. </b>Все варианты</button>
       </div>
 
       <div id="question2">
@@ -135,9 +130,7 @@
           закупки
         </button>
 
-        <button class="answer">
-          <b>4. </b>Все варианты ответа не верны
-        </button>
+        <button class="answer"><b>4. </b>Все варианты ответа не верны</button>
       </div>
 
       <div id="question3">
@@ -162,9 +155,7 @@
 
         <button id="right_otv_3_3" class="answer"><b>3. </b>Верно 1 и 2</button>
 
-        <button class="answer">
-          <b>4. </b>Верно только 1
-        </button>
+        <button class="answer"><b>4. </b>Верно только 1</button>
       </div>
 
       <div id="question4">
@@ -228,14 +219,14 @@
     </div>
 
     <p id="result" class="head">
-      Ваш результат по тесту "Законодательство" <b id="res"></b>
+      Ваш результат по тесту "Закупки" <b id="res"></b>
     </p>
 
     <div class="wrapper2">
-    <button id="finishTest">
-      завершить тест
-    </button>
-  </div>
+      <button id="finishTest">
+        завершить тест
+      </button>
+    </div>
 
     <script src="jsT.js"></script>
   </body>

@@ -8,21 +8,21 @@
       content="Веб-приложение для тестирования в сфере закупок"
     />
     <link rel="stylesheet" href="../css.css" />
-    <title>Вход</title>
+    <title>Раздел администратора</title>
   </head>
 
   <body>
-    <form action="../main.html">
+    <form action="../index.html">
       <button class="goToMainMenu">в главное меню</button>
     </form>
 
-    <!-- Валидация для входа экзаменатора -->
+    <!-- Валидация для входа в раздел -->
 
     <div id="valid">
       <p class="head">Введите пароль</p>
 
-      <p style="text-align: center;">
-        Пароль находится у начальника службы ОТ и ПБ
+      <p class="comment">
+        Пароль находится у начальника службы охраны труда
       </p>
 
       <form name="form" class="pass">
@@ -38,17 +38,19 @@
       </form>
     </div>
 
-    <div id="examActions">
-      <p class="head">Выберите раздел</p>
+    <!-- раздел администратора -->
 
-      <form action="list/list.html">
+    <div id="examActions">
+      <p class="head">Раздел администратора</p>
+
+      <form action="list_empl/list_empl.html">
         <button class="choose">Список работников, допущенных к экзамену</button>
       </form>
 
       <p style="margin-top: 20px;"></p>
 
-      <form action="add_del_que/add_del_que.html">
-        <button class="choose">Изменить вопросы теста</button>
+      <form action="list_ques/list_ques.html">
+        <button class="choose">Просмотреть вопросы теста</button>
       </form>
     </div>
 

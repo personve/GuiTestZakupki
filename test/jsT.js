@@ -55,10 +55,10 @@ function checkData(event) {
     tab_no = document.forms.form2.tab_no.value,
     pass = document.forms.form2.pass.value;
   switch (true) {
-    case fio == null:
+    case fio == "":
       alert("Введите фамилию и инициалы");
       break;
-    case tab_no == null:
+    case tab_no == "":
       alert("Введите табельный номмер");
       break;
     case pass != state.pass:
