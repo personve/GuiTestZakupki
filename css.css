@@ -79,8 +79,7 @@ input[type="text"] {
   border-width: 2pt;
   background: radial-gradient(#ffffff, #e0e0e0);
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto 0;
 }
 
 input[type="submit"],
@@ -271,8 +270,7 @@ td:first-child {
 
 #progressBar,
 #hello,
-#result,
-#examActions {
+#result {
   display: none;
 }
 

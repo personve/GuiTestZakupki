@@ -10,7 +10,9 @@ let rightAnswersLaw = [
   "right_otv_2_3",
   "right_otv_3_3",
   "right_otv_4_2",
-  "right_otv_5_2"
+  "right_otv_5_2",
+  "right_otv_6_4",
+  "right_otv_7_4"
 ];
 
 // Переменные
@@ -126,7 +128,12 @@ function passTestTime() {
   id = setInterval(progressStatus, lostSec);
 
   function progressStatus() {
-    if (timeOfTest == 0 || counter == 5 || exitTest || place) {
+    if (
+      timeOfTest == 0 ||
+      counter == rightAnswersLaw.length ||
+      exitTest ||
+      place
+    ) {
       seeHideElement(
         "#finishTest",
         "#progressBar",
@@ -172,7 +179,7 @@ function clickButton(event) {
   let idAnswer = event.target.getAttribute("id");
   testerAnswersLaw[nameQuestion] = idAnswer;
   counter++;
-  seeHideElement(nameQuestion);
+  seeHideElement("#" + document.querySelector("#" + idAnswer).parentNode.id);
 }
 
 //  Преждевременное завершение теста.
@@ -196,17 +203,20 @@ function counterButtons() {
     }
   }
 
-  if (counter != 0 || counter == 5) {
-    let ball = Math.round((summ * 10) / 5);
+  if (counter != 0 || counter == rightAnswersLaw.length) {
+    let ball = Math.floor((summ * 10) / rightAnswersLaw.length);
     switch (ball) {
       case 1:
         res.innerHTML = ball + " балл";
+        break;
       case 2:
       case 3:
       case 4:
         res.innerHTML = ball + " балла";
+        break;
       default:
         res.innerHTML = ball + " баллов";
+        break;
     }
   } else {
     res.innerHTML = 0 + " баллов";

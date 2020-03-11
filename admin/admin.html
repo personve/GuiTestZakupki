@@ -16,56 +16,16 @@
       <button class="goToMainMenu">в главное меню</button>
     </form>
 
-    <!-- Валидация для входа в раздел -->
+    <p class="head">Раздел администратора</p>
 
-    <div id="valid">
-      <p class="head">Введите пароль</p>
+    <form action="list_empl/list_empl.html">
+      <button class="choose">Список работников, допущенных к экзамену</button>
+    </form>
 
-      <p class="comment">
-        Пароль находится у начальника службы охраны труда
-      </p>
+    <p style="margin-top: 20px;"></p>
 
-      <form name="form" class="pass">
-        <input
-          type="password"
-          name="pass"
-          value="123"
-          placeholder="Введите пароль"
-          required
-        />
-
-        <input type="submit" value="Вход" onclick="checkPassword(event)" />
-      </form>
-    </div>
-
-    <!-- раздел администратора -->
-
-    <div id="examActions">
-      <p class="head">Раздел администратора</p>
-
-      <form action="list_empl/list_empl.html">
-        <button class="choose">Список работников, допущенных к экзамену</button>
-      </form>
-
-      <p style="margin-top: 20px;"></p>
-
-      <form action="list_ques/list_ques.html">
-        <button class="choose">Просмотреть вопросы теста</button>
-      </form>
-    </div>
-
-    <script>
-      const state = { pass: "123" };
-
-      function checkPassword(event) {
-        event.preventDefault();
-        if (document.forms.form.pass.value == state.pass) {
-          document.querySelector("#valid").style.display = "none";
-          document.querySelector("#examActions").style.display = "block";
-        } else {
-          alert("Неверный пароль");
-        }
-      }
-    </script>
+    <form action="list_ques/list_ques.html">
+      <button class="choose">Просмотреть вопросы теста</button>
+    </form>
   </body>
 </html>

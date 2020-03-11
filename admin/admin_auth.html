@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Вакарова А.С." />
+    <meta
+      name="description"
+      content="Веб-приложение для тестирования в сфере закупок"
+    />
+    <link rel="stylesheet" href="../css.css" />
+    <title>Вход</title>
+  </head>
+
+  <body>
+    <form action="../index.html">
+      <button class="goToMainMenu">в главное меню</button>
+    </form>
+
+    <p class="head">Введите пароль</p>
+
+    <p class="comment">
+      Пароль находится у начальника службы охраны труда
+    </p>
+
+    <form name="form" class="pass">
+      <input
+        type="password"
+        name="pass"
+        value="123"
+        placeholder="Введите пароль"
+        required
+      />
+
+      <input type="submit" value="Вход" onclick="checkPassword(event)" />
+    </form>
+
+    <script>
+      const state = { pass: "123" };
+
+      function checkPassword(event) {
+        event.preventDefault();
+        if (document.forms.form.pass.value == state.pass) {
+          location.href = "admin.html";
+        } else {
+          alert("Неверный пароль");
+        }
+      }
+    </script>
+  </body>
+</html>
