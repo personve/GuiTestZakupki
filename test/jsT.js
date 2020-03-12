@@ -61,7 +61,7 @@ function checkData(event) {
       alert("Введите фамилию и инициалы");
       break;
     case tab_no == "":
-      alert("Введите табельный номмер");
+      alert("Введите табельный номер");
       break;
     case pass != state.pass:
       alert("Неверный пароль-подтверждение");
