@@ -120,17 +120,16 @@ input[type="submit"]:hover,
 
 table {
   font: 14px arial;
-  background: white;
-  margin: 5px auto 20px;
   border-collapse: collapse;
 }
 
-#list table {
+#list {
   width: 600px;
+  margin: 5px auto 20px;
 }
 
-#que table {
-  width: 900px;
+#que {
+  margin: 5px 5% 20px;
 }
 
 .changeQue,
