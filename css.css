@@ -8,17 +8,14 @@
   height: 70px;
   width: 400px;
   font-size: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0;
 }
 
 #start {
-  margin-top: 20px;
   height: 100px;
   width: 400px;
   font-size: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto 0;
 }
 
 .goToMainMenu {
@@ -32,22 +29,21 @@
   margin-top: 10px;
 }
 
-textarea[name="question"] {
-  font: 14px arial;
-  text-align: left;
-  border-width: 2pt;
-  background: radial-gradient(#ffffff, #e0e0e0);
-  display: block;
-  margin: 0 auto 30px;
-}
-
+textarea[name="question"],
 textarea[name="answer"] {
   font: 14px arial;
   text-align: left;
   border-width: 2pt;
   background: radial-gradient(#ffffff, #e0e0e0);
   display: block;
+}
+
+textarea[name="answer"] {
   margin: 10px auto 0;
+}
+
+textarea[name="question"] {
+  margin: 0 auto 30px;
 }
 
 .choose,
@@ -96,7 +92,8 @@ input[type="submit"]:hover,
 #addQue:hover,
 .changeQue:hover,
 .deleteQue:hover,
-#start:hover {
+#start:hover,
+.goBack:hover {
   background: #82b4ec;
 } /* при наведении курсора мышки */
 
@@ -109,7 +106,8 @@ input[type="submit"]:hover,
 #addQue:active,
 .changeQue:active,
 .deleteQue:active,
-#start:active {
+#start:active,
+.goBack:active {
   background: #046feb;
 } /* при нажатии */
 
@@ -182,8 +180,7 @@ td:first-child {
   font-size: 16px;
   height: 50px;
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0;
 }
 
 .wrapper {
@@ -199,7 +196,6 @@ td:first-child {
   left: 0;
   top: 0;
   position: absolute;
-  text-align: center;
 }
 
 .progress_line_bg {
@@ -212,11 +208,9 @@ td:first-child {
 
 .question {
   display: block;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px 0;
   font: italic 18px arial;
-  margin-left: 15%;
-  margin-right: 10%;
+  margin: 0 10% 0 15%;
   text-align: center;
   border: 3px solid gray;
   border-radius: 40px;
@@ -235,9 +229,7 @@ td:first-child {
 .answer {
   display: block;
   min-width: 500px;
-  margin-left: 15%;
-  margin-right: 10%;
-  margin-top: 5px;
+  margin: 5px 10% 0 15%;
   text-align: left;
 }
 
